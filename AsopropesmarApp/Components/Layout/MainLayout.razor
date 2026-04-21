@@ -1,0 +1,58 @@
+@inherits LayoutComponentBase
+@inject NavigationManager _navigation
+@using Microsoft.AspNetCore.Components.Authorization
+
+<AuthorizeView>
+    <NotAuthorized>
+        @if (_navigation.Uri.EndsWith("/Cuenta/Autenticacion/LoggedOut") == false)
+        {
+            // Redirect happens in OnInitializedAsync below
+        }
+        @Body
+    </NotAuthorized>
+    <Authorized>
+        <div class="page">
+            <div class="sidebar">
+                <NavMenu />
+            </div>
+
+            <main>
+                <div class="top-row px-4">
+                    <a href="/Cuenta/Autenticacion/Logout" class="btn btn-link">Cerrar Sesión</a>
+                    <a href="https://learn.microsoft.com/aspnet/core/" target="_blank">About</a>
+                </div>
+
+                <article class="content px-4">
+                    @Body
+                </article>
+            </main>
+        </div>
+    </Authorized>
+</AuthorizeView>
+
+<div id="blazor-error-ui" data-nosnippet>
+    An unhandled error has occurred.
+    <a href="." class="reload">Reload</a>
+    <span class="dismiss">🗙</span>
+</div>
+
+@code {
+    [CascadingParameter]
+    private Task<AuthenticationState>? AuthStat { get; set; }
+
+    protected async override Task OnInitializedAsync()
+    {
+        if (AuthStat is not null)
+        {
+            var user = (await AuthStat).User;
+            if (user is null || user.Identity is null || !user.Identity.IsAuthenticated)
+            {
+                var uri = new Uri(_navigation.Uri);
+                if (!uri.AbsolutePath.Equals("/Cuenta/Autenticacion/LoggedOut", StringComparison.OrdinalIgnoreCase))
+                {
+                    _navigation.NavigateTo("/Cuenta/Autenticacion/LoggedOut", false, true);
+                }
+            }
+        }
+    }
+}
