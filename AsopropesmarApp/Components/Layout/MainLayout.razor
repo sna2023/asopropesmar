@@ -1,0 +1,62 @@
+﻿@inherits LayoutComponentBase
+@inject NavigationManager _navigation
+@using Microsoft.AspNetCore.Components.Authorization
+@using System.Security.Claims
+@using Microsoft.AspNetCore.Http
+
+<div class="page">
+    <AuthorizeView>
+        <Authorized>
+            <div class="sidebar">
+                <NavMenu />
+            </div>
+
+            <main>
+                <div class="top-row px-4">
+                    <a href="https://learn.microsoft.com/aspnet/core/" target="_blank">About</a>
+                    <a href="/Cuenta/Autenticacion/Logout" class="ms-3">Cerrar Sesión</a>
+                </div>
+
+                <article class="content px-4">
+                    @Body
+                </article>
+            </main>
+        </Authorized>
+        <NotAuthorized>
+            <main class="w-100">
+                <article class="content px-4">
+                    @Body
+                </article>
+            </main>
+        </NotAuthorized>
+    </AuthorizeView>
+</div>
+
+<div id="blazor-error-ui" data-nosnippet>
+    An unhandled error has occurred.
+    <a href="." class="reload">Reload</a>
+    <span class="dismiss">🗙</span>
+</div>
+
+@code {
+    [CascadingParameter]
+    private Task<AuthenticationState> AuthStat { get; set; } = default!;
+
+    [CascadingParameter]
+    public HttpContext? HttpContext { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        var authState = await AuthStat;
+        var user = authState?.User;
+        if (user is null || user.Identity is null || !user.Identity.IsAuthenticated)
+        {
+            var path = HttpContext?.Request.Path.Value ?? "/" + _navigation.ToBaseRelativePath(_navigation.Uri);
+            if (!path.Contains(AsopropesmarApp.Helpers.Route.Cuenta.Autenticacion.LoggedOut, StringComparison.OrdinalIgnoreCase) &&
+                !path.Contains(AsopropesmarApp.Helpers.Route.Cuenta.Autenticacion.Login, StringComparison.OrdinalIgnoreCase))
+            {
+                _navigation.NavigateTo(AsopropesmarApp.Helpers.Route.Cuenta.Autenticacion.LoggedOut, false, true);
+            }
+        }
+    }
+}
