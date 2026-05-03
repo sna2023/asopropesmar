@@ -1,0 +1,51 @@
+﻿@inherits LayoutComponentBase
+@inject NavigationManager _navigation
+
+<AuthorizeView>
+    <NotAuthorized>
+        @Body
+    </NotAuthorized>
+    <Authorized>
+        <div class="page">
+            <div class="sidebar">
+                <NavMenu />
+            </div>
+
+            <main>
+                <div class="top-row px-4">
+                    <a href="/Cuenta/Autenticacion/Logout">Cerrar Sesión</a>
+                    <a href="https://learn.microsoft.com/aspnet/core/" target="_blank">About</a>
+                </div>
+
+                <article class="content px-4">
+                    @Body
+                </article>
+            </main>
+        </div>
+
+        <div id="blazor-error-ui" data-nosnippet>
+            An unhandled error has occurred.
+            <a href="." class="reload">Reload</a>
+            <span class="dismiss">🗙</span>
+        </div>
+    </Authorized>
+</AuthorizeView>
+
+@code {
+    [CascadingParameter]
+    private Task<AuthenticationState>? AuthStat { get; set; }
+
+    protected async override Task OnInitializedAsync()
+    {
+        var user = (await AuthStat!)?.User;
+        if (user is null || user.Identity is null || !user.Identity.IsAuthenticated)
+        {
+            var relativePath = "/" + _navigation.ToBaseRelativePath(_navigation.Uri);
+            if (!string.Equals(relativePath, Helpers.Route.Cuenta.Autenticacion.LoggedOut, StringComparison.OrdinalIgnoreCase) &&
+                !string.Equals(relativePath, Helpers.Route.Cuenta.Autenticacion.Login, StringComparison.OrdinalIgnoreCase))
+            {
+                _navigation.NavigateTo(Helpers.Route.Cuenta.Autenticacion.LoggedOut, forceLoad: false, replace: true);
+            }
+        }
+    }
+}
