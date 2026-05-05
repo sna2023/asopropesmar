@@ -1,0 +1,65 @@
+@inherits LayoutComponentBase
+@inject NavigationManager NavigationManager
+
+<AuthorizeView>
+    <NotAuthorized>
+        @if (NavigationManager.ToBaseRelativePath(NavigationManager.Uri) == "Cuenta/Autenticacion/LoggedOut")
+        {
+            @Body
+        }
+        else
+        {
+            <div class="page">
+                <main>
+                    <div class="top-row px-4">
+                        <a href="/Cuenta/Autenticacion/Login">Iniciar Sesión</a>
+                    </div>
+                    <article class="content px-4">
+                        <p>Debe iniciar sesión para ver este contenido.</p>
+                        @Body
+                    </article>
+                </main>
+            </div>
+        }
+    </NotAuthorized>
+    <Authorized>
+        <div class="page">
+            <div class="sidebar">
+                <NavMenu />
+            </div>
+
+            <main>
+                <div class="top-row px-4">
+                    <a href="https://learn.microsoft.com/aspnet/core/" target="_blank">About</a>
+                    <a href="/Cuenta/Autenticacion/Logout" class="ml-md-auto">Cerrar Sesión</a>
+                </div>
+
+                <article class="content px-4">
+                    @Body
+                </article>
+            </main>
+        </div>
+    </Authorized>
+</AuthorizeView>
+
+@code {
+    [CascadingParameter]
+    private Task<AuthenticationState>? AuthStat { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        if (AuthStat != null)
+        {
+            var user = (await AuthStat).User;
+            if (user?.Identity == null || !user.Identity.IsAuthenticated)
+            {
+                var relativePath = "/" + NavigationManager.ToBaseRelativePath(NavigationManager.Uri);
+                if (relativePath != Helpers.Route.Cuenta.Autenticacion.LoggedOut &&
+                    relativePath != Helpers.Route.Cuenta.Autenticacion.Login)
+                {
+                    NavigationManager.NavigateTo(Helpers.Route.Cuenta.Autenticacion.LoggedOut, forceLoad: true);
+                }
+            }
+        }
+    }
+}
