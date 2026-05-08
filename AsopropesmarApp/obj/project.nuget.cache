@@ -1,0 +1,44 @@
+{
+  "version": 2,
+  "dgSpecHash": "08gF+UMNFHk=",
+  "success": true,
+  "projectFilePath": "/app/AsopropesmarApp/AsopropesmarApp.csproj",
+  "expectedPackageFiles": [
+    "/home/jules/.nuget/packages/identitymodel/7.0.0/identitymodel.7.0.0.nupkg.sha512",
+    "/home/jules/.nuget/packages/microsoft.aspnetcore.app.internal.assets/10.0.3/microsoft.aspnetcore.app.internal.assets.10.0.3.nupkg.sha512",
+    "/home/jules/.nuget/packages/microsoft.aspnetcore.authentication.openidconnect/8.0.0/microsoft.aspnetcore.authentication.openidconnect.8.0.0.nupkg.sha512",
+    "/home/jules/.nuget/packages/microsoft.identitymodel.abstractions/7.0.3/microsoft.identitymodel.abstractions.7.0.3.nupkg.sha512",
+    "/home/jules/.nuget/packages/microsoft.identitymodel.jsonwebtokens/7.0.3/microsoft.identitymodel.jsonwebtokens.7.0.3.nupkg.sha512",
+    "/home/jules/.nuget/packages/microsoft.identitymodel.logging/7.0.3/microsoft.identitymodel.logging.7.0.3.nupkg.sha512",
+    "/home/jules/.nuget/packages/microsoft.identitymodel.protocols/7.0.3/microsoft.identitymodel.protocols.7.0.3.nupkg.sha512",
+    "/home/jules/.nuget/packages/microsoft.identitymodel.protocols.openidconnect/7.0.3/microsoft.identitymodel.protocols.openidconnect.7.0.3.nupkg.sha512",
+    "/home/jules/.nuget/packages/microsoft.identitymodel.tokens/7.0.3/microsoft.identitymodel.tokens.7.0.3.nupkg.sha512",
+    "/home/jules/.nuget/packages/system.identitymodel.tokens.jwt/7.0.3/system.identitymodel.tokens.jwt.7.0.3.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1902",
+      "level": "Warning",
+      "message": "Package 'Microsoft.IdentityModel.JsonWebTokens' 7.0.3 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-59j7-ghrg-fj52",
+      "projectPath": "/app/AsopropesmarApp/AsopropesmarApp.csproj",
+      "warningLevel": 1,
+      "filePath": "/app/AsopropesmarApp/AsopropesmarApp.csproj",
+      "libraryId": "Microsoft.IdentityModel.JsonWebTokens",
+      "targetGraphs": [
+        "net10.0"
+      ]
+    },
+    {
+      "code": "NU1902",
+      "level": "Warning",
+      "message": "Package 'System.IdentityModel.Tokens.Jwt' 7.0.3 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-59j7-ghrg-fj52",
+      "projectPath": "/app/AsopropesmarApp/AsopropesmarApp.csproj",
+      "warningLevel": 1,
+      "filePath": "/app/AsopropesmarApp/AsopropesmarApp.csproj",
+      "libraryId": "System.IdentityModel.Tokens.Jwt",
+      "targetGraphs": [
+        "net10.0"
+      ]
+    }
+  ]
+}
