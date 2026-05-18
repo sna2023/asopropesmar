@@ -1,0 +1,10 @@
+[Bb]in/
+[Oo]bj/
+**/[Bb]in/
+**/[Oo]bj/
+**/bin/
+**/obj/
+AsopropesmarApp/wwwroot/lib/bootstrap/
+AsopropesmarApp/wwwroot/lib/
+AsopropesmarApp/obj/
+AsopropesmarApp/bin/
