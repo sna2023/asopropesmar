@@ -1,0 +1,99 @@
+@inherits LayoutComponentBase
+@inject NavigationManager _navigation
+
+<AuthorizeView>
+    <NotAuthorized>
+        @Body
+    </NotAuthorized>
+    <Authorized>
+        <div class="page" data-bs-spy="scroll" data-bs-target="#navbar">
+            <!-- Navegación -->
+            <nav class="navbar navbar-expand-lg sticky-top" id="navbar">
+                <div class="container">
+                    <a class="navbar-brand" href="#">
+                        <img src="asopro.jpeg" alt="ASOPROPESMAR" height="50" class="me-2">
+                    </a>
+                    <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navMenu">
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item"><a class="nav-link" href="#inicio">Inicio</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#nosotros">Nosotros</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#servicios">Servicios</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#galeria">Galería</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#asociados">Asociados</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+                            <li class="nav-item ms-3">
+                                <a href="@AsopropesmarApp.Helpers.Route.Cuenta.Autenticacion.Logout" class="btn login-btn">
+                                    <i class="bi bi-box-arrow-right me-1"></i> Cerrar Sesión
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <main>
+                <article class="content">
+                    @Body
+                </article>
+            </main>
+
+            <!-- Footer -->
+            <footer class="footer text-center">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4 mb-4">
+                            <h5>ASOPROPESMAR</h5>
+                            <p class="small">Asociación de Producción Pesquera Manabí Artesanal</p>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <h5>Enlaces</h5>
+                            <ul class="list-unstyled">
+                                <li><a href="#inicio" class="text-white-50 text-decoration-none">Inicio</a></li>
+                                <li><a href="#nosotros" class="text-white-50 text-decoration-none">Nosotros</a></li>
+                                <li><a href="#servicios" class="text-white-50 text-decoration-none">Servicios</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <h5>Datos 2026</h5>
+                            <p class="small">Más de 200 pescadores asociados</p>
+                            <p class="small">15+ años de experiencia</p>
+                        </div>
+                    </div>
+                    <hr style="border-color: rgba(255,255,255,0.2);">
+                    <p>&copy; 2026 ASOPROPESMAR. Todos los derechos reservados.</p>
+                </div>
+            </footer>
+        </div>
+
+        <div id="blazor-error-ui" data-nosnippet>
+            An unhandled error has occurred.
+            <a href="." class="reload">Reload</a>
+            <span class="dismiss">🗙</span>
+        </div>
+    </Authorized>
+</AuthorizeView>
+
+@code {
+    [CascadingParameter]
+    private Task<AuthenticationState>? AuthStat { get; set; }
+
+    [Inject]
+    private IHttpContextAccessor? _httpContextAccessor { get; set; }
+
+    protected async override Task OnInitializedAsync()
+    {
+        var user = AuthStat is not null ? (await AuthStat)?.User : null;
+        if (user is null || user.Identity is null || !user.Identity.IsAuthenticated)
+        {
+            var isLoggedOutPath = _httpContextAccessor?.HttpContext?.Request.Path.Value?.Equals(AsopropesmarApp.Helpers.Route.Cuenta.Autenticacion.LoggedOut, StringComparison.OrdinalIgnoreCase) == true;
+
+            if (!isLoggedOutPath && !_navigation.ToBaseRelativePath(_navigation.Uri).Equals(AsopropesmarApp.Helpers.Route.Cuenta.Autenticacion.LoggedOut.TrimStart('/'), StringComparison.OrdinalIgnoreCase))
+            {
+                _navigation.NavigateTo(AsopropesmarApp.Helpers.Route.Cuenta.Autenticacion.LoggedOut, false, true);
+            }
+        }
+    }
+}
