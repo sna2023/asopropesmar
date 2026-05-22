@@ -1,0 +1,50 @@
+﻿@inherits LayoutComponentBase
+@inject NavigationManager Navigation
+
+@code {
+    [CascadingParameter]
+    private Task<AuthenticationState>? AuthStat { get; set; }
+
+    protected async override Task OnInitializedAsync()
+    {
+        var authState = AuthStat is not null ? await AuthStat : null;
+        var user = authState?.User;
+        if (user is null || user.Identity is null || !user.Identity.IsAuthenticated)
+        {
+            var loggedOutUri = Navigation.ToAbsoluteUri(AsopropesmarApp.Helpers.Route.Cuenta.Autenticacion.LoggedOut);
+            if (Navigation.Uri != loggedOutUri.ToString())
+            {
+                Navigation.NavigateTo(AsopropesmarApp.Helpers.Route.Cuenta.Autenticacion.LoggedOut, forceLoad: false, replace: true);
+            }
+        }
+    }
+}
+
+<AuthorizeView>
+    <NotAuthorized>
+        @Body
+    </NotAuthorized>
+    <Authorized>
+        <div class="page">
+            <div class="sidebar">
+                <NavMenu />
+            </div>
+
+            <main>
+                <div class="top-row px-4">
+                    <a href="@AsopropesmarApp.Helpers.Route.Cuenta.Autenticacion.Logout">Cerrar Sesión</a>
+                </div>
+
+                <article class="content px-4">
+                    @Body
+                </article>
+            </main>
+        </div>
+    </Authorized>
+</AuthorizeView>
+
+<div id="blazor-error-ui" data-nosnippet>
+    An unhandled error has occurred.
+    <a href="." class="reload">Reload</a>
+    <span class="dismiss">🗙</span>
+</div>
