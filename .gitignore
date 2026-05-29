@@ -1,0 +1,6 @@
+bin/
+obj/
+AsopropesmarApp/bin/
+AsopropesmarApp/obj/
+AsopropesmarApp/wwwroot/lib/bootstrap/
+AsopropesmarApp/app.log
