@@ -1,0 +1,52 @@
+@inherits LayoutComponentBase
+@inject NavigationManager NavigationManager
+
+<div class="page">
+    <AuthorizeView>
+        <Authorized>
+            <div class="sidebar">
+                <NavMenu />
+            </div>
+
+            <main>
+                <div class="top-row px-4">
+                    <a href="/Cuenta/Autenticacion/Logout">Cerrar Sesión</a>
+                </div>
+
+                <article class="content px-4">
+                    @Body
+                </article>
+            </main>
+        </Authorized>
+        <NotAuthorized>
+            <main class="w-100">
+                <article class="content px-4">
+                    @Body
+                </article>
+            </main>
+        </NotAuthorized>
+    </AuthorizeView>
+</div>
+
+@code {
+    [CascadingParameter]
+    private Task<AuthenticationState>? AuthStat { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        if (AuthStat != null)
+        {
+            var user = (await AuthStat).User;
+            if (user?.Identity == null || !user.Identity.IsAuthenticated)
+            {
+                var relativePath = NavigationManager.ToBaseRelativePath(NavigationManager.Uri);
+                var targetPath = AsopropesmarApp.Helpers.Route.Cuenta.Autenticacion.LoggedOut;
+
+                if ("/" + relativePath != targetPath)
+                {
+                    NavigationManager.NavigateTo(targetPath, false, true);
+                }
+            }
+        }
+    }
+}
