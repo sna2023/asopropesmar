@@ -1,0 +1,11 @@
+bin/
+obj/
+AsopropesmarApp/bin/
+AsopropesmarApp/obj/
+AsopropesmarApp/wwwroot/lib/
+wwwroot/lib/
+AsopropesmarApp/obj/
+AsopropesmarApp/bin/
+/AsopropesmarApp/bin/
+/AsopropesmarApp/obj/
+/AsopropesmarApp/wwwroot/lib/
