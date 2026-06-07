@@ -1,0 +1,97 @@
+@inherits LayoutComponentBase
+@inject NavigationManager NavigationManager
+
+<AuthorizeView>
+    <NotAuthorized>
+        @if (NavigationManager.ToBaseRelativePath(NavigationManager.Uri) == "")
+        {
+            <!-- Navigation -->
+            <nav class="navbar navbar-expand-lg sticky-top" id="navbar">
+                <div class="container">
+                    <a class="navbar-brand" href="#">
+                        <img src="asopro.jpeg" alt="ASOPROPESMAR" height="50" class="me-2">
+                    </a>
+                    <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navMenu">
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item"><a class="nav-link" href="#inicio">Inicio</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#nosotros">Nosotros</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#servicios">Servicios</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#galeria">Galería</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#asociados">Asociados</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+                            <li class="nav-item ms-3">
+                                <a href="@AsopropesmarApp.Helpers.Route.Cuenta.Autenticacion.Login" class="btn login-btn" data-enhance-nav="false">
+                                    <i class="bi bi-person-circle me-1"></i> Login
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            @Body
+        }
+        else
+        {
+            @Body
+        }
+    </NotAuthorized>
+    <Authorized>
+        <!-- Navigation -->
+        <nav class="navbar navbar-expand-lg sticky-top" id="navbar">
+            <div class="container">
+                <a class="navbar-brand" href="#">
+                    <img src="asopro.jpeg" alt="ASOPROPESMAR" height="50" class="me-2">
+                </a>
+                <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navMenu">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="#inicio">Inicio</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#nosotros">Nosotros</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#servicios">Servicios</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#galeria">Galería</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#asociados">Asociados</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+                        <li class="nav-item ms-3">
+                            <a href="@AsopropesmarApp.Helpers.Route.Cuenta.Autenticacion.Logout" class="btn btn-danger" data-enhance-nav="false">
+                                Cerrar Sesión
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        @Body
+    </Authorized>
+</AuthorizeView>
+
+<div id="blazor-error-ui">
+    An unhandled error has occurred.
+    <a href="" class="reload">Reload</a>
+    <a class="dismiss">🗙</a>
+</div>
+
+@code {
+    [CascadingParameter]
+    private Task<AuthenticationState>? AuthStat { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        if (AuthStat != null)
+        {
+            var user = (await AuthStat).User;
+            if (user?.Identity == null || !user.Identity.IsAuthenticated)
+            {
+                var relativePath = "/" + NavigationManager.ToBaseRelativePath(NavigationManager.Uri);
+                if (relativePath != AsopropesmarApp.Helpers.Route.Cuenta.Autenticacion.LoggedOut && relativePath != AsopropesmarApp.Helpers.Route.Inicio.Bienvenida)
+                {
+                    NavigationManager.NavigateTo(AsopropesmarApp.Helpers.Route.Cuenta.Autenticacion.LoggedOut, false, true);
+                }
+            }
+        }
+    }
+}
