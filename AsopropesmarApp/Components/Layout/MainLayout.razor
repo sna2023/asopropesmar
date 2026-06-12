@@ -1,0 +1,60 @@
+﻿@inherits LayoutComponentBase
+@inject NavigationManager Navigation
+@using Microsoft.AspNetCore.Components.Authorization
+@using AsopropesmarApp.Helpers
+
+<AuthorizeView>
+    <Authorized>
+        <div class="page">
+            <div class="sidebar">
+                <NavMenu />
+            </div>
+
+            <main>
+                <div class="top-row px-4">
+                    <a href="@AsopropesmarApp.Helpers.Route.Cuenta.Autenticacion.Logout" data-enhance-nav="false">Cerrar Sesión</a>
+                    <a href="https://learn.microsoft.com/aspnet/core/" target="_blank">About</a>
+                </div>
+
+                <article class="content px-4">
+                    @Body
+                </article>
+            </main>
+        </div>
+    </Authorized>
+    <NotAuthorized>
+        @Body
+    </NotAuthorized>
+</AuthorizeView>
+
+<div id="blazor-error-ui">
+    An unhandled error has occurred.
+    <a href="" class="reload">Reload</a>
+    <a class="dismiss">🗙</a>
+</div>
+
+@code {
+    [CascadingParameter]
+    private Task<AuthenticationState>? AuthStat { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        if (AuthStat is not null)
+        {
+            var authState = await AuthStat;
+            var user = authState?.User;
+
+            if (user is null || user.Identity is null || !user.Identity.IsAuthenticated)
+            {
+                var uriString = Navigation.Uri;
+                var relativePath = "/" + Navigation.ToBaseRelativePath(uriString);
+
+                if (relativePath != AsopropesmarApp.Helpers.Route.Cuenta.Autenticacion.LoggedOut &&
+                    relativePath != AsopropesmarApp.Helpers.Route.Cuenta.Autenticacion.Login)
+                {
+                    Navigation.NavigateTo(AsopropesmarApp.Helpers.Route.Cuenta.Autenticacion.LoggedOut, forceLoad: true);
+                }
+            }
+        }
+    }
+}
