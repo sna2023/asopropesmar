@@ -1,0 +1,16 @@
+# .NET / Build output
+bin/
+obj/
+# Packages
+*.nupkg
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+# Logs
+*.log
+# IDEs
+.vs/
+.vscode/
+*.swp
+*.*~
