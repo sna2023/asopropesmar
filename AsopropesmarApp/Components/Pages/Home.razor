@@ -1,0 +1,280 @@
+@page "/"
+@using Microsoft.AspNetCore.Components.Authorization
+@using Microsoft.AspNetCore.Components.Web
+
+<PageTitle>ASOPROPESMAR - Asociación de Producción Pesquera Manabí Artesanal</PageTitle>
+
+<AuthorizeView>
+    <Authorized>
+        <!-- Aquí va el contenido del body original de index.html excluyendo el navbar -->
+
+        <!-- Inicio -->
+        <section id="inicio" class="hero-section d-flex align-items-center">
+            <div class="container text-center text-white">
+                <h1 class="display-3 fw-bold mb-4 animate__animated animate__fadeInDown">ASOPROPESMAR</h1>
+                <p class="lead mb-4 animate__animated animate__fadeInUp">Asociación de Producción Pesquera Manabí Artesanal</p>
+                <div class="animate__animated animate__fadeInUp animate__delay-1s">
+                    <a href="#asociados" class="btn btn-primary btn-lg me-3"><i class="bi bi-people-fill me-2"></i>Gestión de Asociados</a>
+                    <a href="#contacto" class="btn btn-outline-light btn-lg"><i class="bi bi-envelope-fill me-2"></i>Contáctanos</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Nosotros -->
+        <section id="nosotros" class="section bg-light">
+            <div class="container">
+                <h2 class="section-title text-center">Nuestra Asociación</h2>
+                <div class="row align-items-center g-5">
+                    <div class="col-lg-6">
+                        <img src="producto.jpg" alt="Pescadores Artesanales" class="img-fluid rounded-4 shadow-lg">
+                    </div>
+                    <div class="col-lg-6">
+                        <h3 class="fw-bold mb-4">Uniendo fuerzas por la pesca artesanal de Manabí</h3>
+                        <p class="lead text-muted mb-4">ASOPROPESMAR es el corazón de la comunidad pesquera artesanal en Manabí. Nuestra misión es impulsar el desarrollo sostenible, mejorar las condiciones de vida de nuestros asociados y proteger nuestros recursos marinos para las futuras generaciones.</p>
+
+                        <div class="row g-4 mt-2">
+                            <div class="col-md-6">
+                                <div class="d-flex align-items-start">
+                                    <div class="icon-box me-3">
+                                        <i class="bi bi-shield-check text-primary fs-3"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="fw-bold">Apoyo Integral</h5>
+                                        <p class="text-muted small">Asesoría legal, técnica y comercial para nuestros socios.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="d-flex align-items-start">
+                                    <div class="icon-box me-3">
+                                        <i class="bi bi-droplet-half text-primary fs-3"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="fw-bold">Pesca Sostenible</h5>
+                                        <p class="text-muted small">Promovemos prácticas responsables con el medio ambiente.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Servicios -->
+        <section id="servicios" class="section">
+            <div class="container">
+                <h2 class="section-title text-center" style="color: white;">Nuestros Servicios</h2>
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="card h-100 border-0 shadow-sm p-4 text-center hover-card">
+                            <div class="card-body">
+                                <div class="mb-4">
+                                    <i class="bi bi-file-earmark-text text-primary" style="font-size: 3rem;"></i>
+                                </div>
+                                <h4 class="card-title fw-bold mb-3">Trámites y Permisos</h4>
+                                <p class="card-text text-muted">Gestión ágil de licencias de pesca, matrículas de embarcaciones y documentación habilitante ante las autoridades competentes.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card h-100 border-0 shadow-sm p-4 text-center hover-card">
+                            <div class="card-body">
+                                <div class="mb-4">
+                                    <i class="bi bi-box-seam text-primary" style="font-size: 3rem;"></i>
+                                </div>
+                                <h4 class="card-title fw-bold mb-3">Comercialización</h4>
+                                <p class="card-text text-muted">Búsqueda de mejores mercados, precios justos y canales de distribución directos para los productos de nuestros asociados.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card h-100 border-0 shadow-sm p-4 text-center hover-card">
+                            <div class="card-body">
+                                <div class="mb-4">
+                                    <i class="bi bi-tools text-primary" style="font-size: 3rem;"></i>
+                                </div>
+                                <h4 class="card-title fw-bold mb-3">Capacitación Técnica</h4>
+                                <p class="card-text text-muted">Talleres sobre nuevas técnicas de pesca, mantenimiento de motores, seguridad marítima y manejo de equipos de navegación.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gestión de Asociados -->
+        <section id="asociados" class="section bg-light">
+            <div class="container">
+                <h2 class="section-title text-center">Gestión de Asociados</h2>
+
+                <div class="row g-4 mb-5 text-center">
+                    <div class="col-md-4">
+                        <div class="stat-card">
+                            <i class="bi bi-people fs-1 mb-3"></i>
+                            <div class="stat-number" id="totalMembers">0</div>
+                            <p>Total Asociados</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="stat-card">
+                            <i class="bi bi-person-check-fill fs-1 mb-3"></i>
+                            <div class="stat-number" id="activeMembers">0</div>
+                            <p>Activos</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="stat-card">
+                            <i class="bi bi-person-dash-fill fs-1 mb-3"></i>
+                            <div class="stat-number" id="inactiveMembers">0</div>
+                            <p>Inactivos</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="db-section">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h4 class="mb-0"><i class="bi bi-database me-2"></i>Base de Datos de Asociados</h4>
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#memberModal">
+                            <i class="bi bi-plus-circle me-1"></i> Nuevo Asociado
+                        </button>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-hover" id="membersTable">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Nombre</th>
+                                    <th>Email</th>
+                                    <th>Teléfono</th>
+                                    <th>Tipo</th>
+                                    <th>Estado</th>
+                                    <th>Fecha</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody id="membersTableBody"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contacto -->
+        <section id="contacto" class="section contact-section">
+            <div class="container">
+                <h2 class="section-title" style="color: white;">Contacto</h2>
+                <div class="row g-4">
+                    <div class="col-md-6">
+                        <div class="contact-card">
+                            <h4 class="mb-4"><i class="bi bi-geo-alt me-2"></i>Información de Contacto</h4>
+                            <div class="mb-3">
+                                <p><i class="bi bi-person-badge me-2"></i><strong>Representante:</strong> Walter González Klegan</p>
+                                <p><i class="bi bi-telephone me-2"></i><strong>Teléfono:</strong> +593 981452439</p>
+                                <p><i class="bi bi-envelope me-2"></i><strong>Email:</strong> info@asopropesmar.org.ec</p>
+                                <p><i class="bi bi-geo-alt me-2"></i><strong>Ubicación:</strong> Manta, Manabí, Ecuador</p>
+                                <p><i class="bi bi-clock me-2"></i><strong>Horario:</strong> Lunes a Viernes 8:00 - 17:00</p>
+                            </div>
+                            <div class="mt-4">
+                                <a href="#" class="btn btn-outline-light me-2"><i class="bi bi-facebook"></i></a>
+                                <a href="#" class="btn btn-outline-light me-2"><i class="bi bi-instagram"></i></a>
+                                <a href="#" class="btn btn-outline-light"><i class="bi bi-whatsapp"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="contact-card">
+                            <h4 class="mb-4"><i class="bi bi-map me-2"></i>Nuestra Ubicación</h4>
+                            <div class="map-container">
+                                <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=-80.72%2C-0.96%2C-80.68%2C-0.92&amp;layer=mapnik&amp;marker=-0.95%2C-80.70"
+                                        width="100%" height="300" style="border:0; border-radius: 15px;" allowfullscreen loading="lazy"></iframe>
+                            </div>
+                            <p class="mt-3 text-center"><small> Puerto de Manta, Manabí - Ecuador</small></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer text-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 mb-4">
+                        <h5>ASOPROPESMAR</h5>
+                        <p class="small">Asociación de Producción Pesquera Manabí Artesanal</p>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <h5>Enlaces</h5>
+                        <ul class="list-unstyled">
+                            <li><a href="#inicio" class="text-white-50 text-decoration-none">Inicio</a></li>
+                            <li><a href="#nosotros" class="text-white-50 text-decoration-none">Nosotros</a></li>
+                            <li><a href="#servicios" class="text-white-50 text-decoration-none">Servicios</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <h5>Datos 2026</h5>
+                        <p class="small">Más de 200 pescadores asociados</p>
+                        <p class="small">15+ años de experiencia</p>
+                    </div>
+                </div>
+                <hr style="border-color: rgba(255,255,255,0.2);">
+                <p>&copy; 2026 ASOPROPESMAR. Todos los derechos reservados.</p>
+            </div>
+        </footer>
+
+        <!-- Modal Nuevo Asociado -->
+        <div class="modal fade" id="memberModal" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title"><i class="bi bi-person-plus me-2"></i>Nuevo Asociado</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="memberForm">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Nombres *</label>
+                                    <input type="text" class="form-control" id="memberFirstName" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Apellidos *</label>
+                                    <input type="text" class="form-control" id="memberLastName" required>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Email *</label>
+                                <input type="email" class="form-control" id="memberEmail" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Teléfono *</label>
+                                <input type="tel" class="form-control" id="memberPhone" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Tipo</label>
+                                <select class="form-select" id="memberType">
+                                    <option value="pescador">Pescador</option>
+                                    <option value="acuicultor">Acuicultor</option>
+                                    <option value="procesador">Procesador</option>
+                                    <option value="comerciante">Comerciante</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Estado</label>
+                                <select class="form-select" id="memberStatus">
+                                    <option value="activo">Activo</option>
+                                    <option value="inactivo">Inactivo</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100">Guardar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Toast Container -->
+        <div class="toast-container" id="toastContainer"></div>
+    </Authorized>
+</AuthorizeView>

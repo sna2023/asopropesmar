@@ -1,0 +1,11 @@
+# .NET
+bin/
+obj/
+*.user
+*.suo
+
+# OIDC Secrets
+appsettings.Development.json
+
+# Static files copied manually
+wwwroot/lib/bootstrap/
