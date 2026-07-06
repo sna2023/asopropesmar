@@ -1,0 +1,106 @@
+@inherits LayoutComponentBase
+@inject NavigationManager NavigationManager
+@using Microsoft.AspNetCore.Components.Authorization
+@using AsopropesmarApp.Helpers.Route
+
+<AuthorizeView>
+    <NotAuthorized>
+        @if (NavigationManager.ToBaseRelativePath(NavigationManager.Uri) != Cuenta.Autenticacion.LoggedOut.TrimStart('/'))
+        {
+            <div class="d-flex justify-content-center align-items-center vh-100">
+                <div class="text-center">
+                    <h2 class="mb-4">Bienvenido a ASOPROPESMAR</h2>
+                    <a href="@Cuenta.Autenticacion.Login" class="btn btn-primary btn-lg" data-enhance-nav="false">
+                        Iniciar Sesión
+                    </a>
+                </div>
+            </div>
+        }
+        else
+        {
+            @Body
+        }
+    </NotAuthorized>
+    <Authorized>
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+            <div class="container">
+                <a class="navbar-brand d-flex align-items-center" href="@Inicio.Bienvenida">
+                    <img src="asopro.jpeg" alt="Logo" width="40" height="40" class="me-2 rounded-circle">
+                    ASOPROPESMAR
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#inicio">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#nosotros">Nosotros</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#servicios">Servicios</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#directorio">Directorio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#contacto">Contacto</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Hola, @context.User.Identity?.Name
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end">
+                                <li>
+                                    <a class="dropdown-item text-danger" href="@Cuenta.Autenticacion.Logout" data-enhance-nav="false">
+                                        Cerrar Sesión
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <main>
+            @Body
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer text-center bg-dark text-white pt-5 pb-4 mt-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 mb-4">
+                        <h5>ASOPROPESMAR</h5>
+                        <p class="small">Asociación de Producción Pesquera Manabí Artesanal</p>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <h5>Enlaces</h5>
+                        <ul class="list-unstyled">
+                            <li><a href="#inicio" class="text-white-50 text-decoration-none">Inicio</a></li>
+                            <li><a href="#nosotros" class="text-white-50 text-decoration-none">Nosotros</a></li>
+                            <li><a href="#servicios" class="text-white-50 text-decoration-none">Servicios</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <h5>Datos 2026</h5>
+                        <p class="small">Más de 200 pescadores asociados</p>
+                        <p class="small">15+ años de experiencia</p>
+                    </div>
+                </div>
+                <hr style="border-color: rgba(255,255,255,0.2);">
+                <p class="mb-0">&copy; 2026 ASOPROPESMAR. Todos los derechos reservados.</p>
+            </div>
+        </footer>
+    </Authorized>
+</AuthorizeView>
+
+<div id="blazor-error-ui">
+    An unhandled error has occurred.
+    <a href="" class="reload">Reload</a>
+    <a class="dismiss">🗙</a>
+</div>
