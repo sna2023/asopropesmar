@@ -1,0 +1,18 @@
+# Build artifacts
+[Bb]in/
+[Oo]bj/
+[Oo]ut/
+[Dd]ebug/
+[Rr]elease/
+*.dll
+*.pdb
+
+# Local config
+appsettings.Development.json
+dotnet_run_output.txt
+
+# Editor / IDE
+.vscode/
+.vs/
+*.user
+*.suo
