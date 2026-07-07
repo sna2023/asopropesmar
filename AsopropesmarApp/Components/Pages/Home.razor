@@ -1,0 +1,227 @@
+@page "/"
+@attribute [Microsoft.AspNetCore.Authorization.Authorize]
+
+<PageTitle>ASOPROPESMAR - Asociación de Producción Pesquera Manabí Artesanal</PageTitle>
+
+<!-- Hero Section con peces -->
+<section id="inicio" class="hero-section">
+    <!-- Peces nadando -->
+    <div class="fish" style="top: 15%; animation-duration: 12s; animation-delay: 0s;">
+        <span class="iconify" data-icon="noto:fish" style="font-size: 40px; color: #4bcffa;"></span>
+    </div>
+    <div class="fish" style="top: 35%; animation-duration: 18s; animation-delay: -5s;">
+        <span class="iconify" data-icon="noto:fish" style="font-size: 32px; color: #f4d03f;"></span>
+    </div>
+    <div class="fish" style="top: 55%; animation-duration: 15s; animation-delay: -2s;">
+        <span class="iconify" data-icon="noto:fish" style="font-size: 45px; color: #ff9f43;"></span>
+    </div>
+    <div class="fish" style="top: 75%; animation-duration: 20s; animation-delay: -8s;">
+        <span class="iconify" data-icon="noto:fish" style="font-size: 38px; color: #1dd1a1;"></span>
+    </div>
+    <div class="fish" style="top: 25%; animation-duration: 14s; animation-delay: -10s;">
+        <span class="iconify" data-icon="noto:fish" style="font-size: 35px; color: #ee5253;"></span>
+    </div>
+
+    <div class="container h-100 position-relative z-1">
+        <div class="row h-100 align-items-center">
+            <div class="col-lg-8">
+                <h1 class="display-4 fw-bold mb-4 text-white">ASOPROPESMAR</h1>
+                <p class="lead mb-4 text-white">Asociación de Producción Pesquera Manabí Artesanal</p>
+                <a href="#contacto" class="btn btn-primary btn-lg">Únete a Nosotros</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Nosotros -->
+<section id="nosotros" class="py-5">
+    <div class="container py-5">
+        <div class="row align-items-center">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <img src="asopro.jpeg" alt="Pescadores trabajando" class="img-fluid rounded-3 shadow-lg w-100" style="object-fit: cover; height: 400px;">
+            </div>
+            <div class="col-lg-6 px-lg-5">
+                <h2 class="fw-bold mb-4 position-relative section-title">Sobre Nosotros</h2>
+                <p class="lead text-muted">Somos una asociación dedicada a la pesca artesanal en la provincia de Manabí, comprometidos con el desarrollo sostenible y el bienestar de nuestras comunidades costeras.</p>
+                <div class="row mt-4">
+                    <div class="col-6 mb-3">
+                        <div class="d-flex align-items-center">
+                            <i class="bi bi-check-circle-fill text-primary fs-4 me-2"></i>
+                            <span class="fw-medium">Pesca Sostenible</span>
+                        </div>
+                    </div>
+                    <div class="col-6 mb-3">
+                        <div class="d-flex align-items-center">
+                            <i class="bi bi-check-circle-fill text-primary fs-4 me-2"></i>
+                            <span class="fw-medium">Comercio Justo</span>
+                        </div>
+                    </div>
+                    <div class="col-6 mb-3">
+                        <div class="d-flex align-items-center">
+                            <i class="bi bi-check-circle-fill text-primary fs-4 me-2"></i>
+                            <span class="fw-medium">Apoyo Comunitario</span>
+                        </div>
+                    </div>
+                    <div class="col-6 mb-3">
+                        <div class="d-flex align-items-center">
+                            <i class="bi bi-check-circle-fill text-primary fs-4 me-2"></i>
+                            <span class="fw-medium">Calidad Garantizada</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Servicios -->
+<section id="servicios" class="py-5 bg-light">
+    <div class="container py-5">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold position-relative section-title d-inline-block">Nuestros Servicios</h2>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm p-4 text-center service-card">
+                    <div class="service-icon mx-auto mb-4">
+                        <i class="bi bi-water"></i>
+                    </div>
+                    <h4 class="fw-bold mb-3">Pesca Fresca</h4>
+                    <p class="text-muted">Productos del mar capturados diariamente por nuestros asociados, garantizando la máxima frescura.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm p-4 text-center service-card">
+                    <div class="service-icon mx-auto mb-4">
+                        <i class="bi bi-shop"></i>
+                    </div>
+                    <h4 class="fw-bold mb-3">Comercialización Directa</h4>
+                    <p class="text-muted">Venta sin intermediarios, conectando directamente al pescador con el consumidor o negocio.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm p-4 text-center service-card">
+                    <div class="service-icon mx-auto mb-4">
+                        <i class="bi bi-people"></i>
+                    </div>
+                    <h4 class="fw-bold mb-3">Asistencia Técnica</h4>
+                    <p class="text-muted">Capacitación y apoyo a nuestros asociados para mejorar técnicas de pesca y sostenibilidad.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Galería -->
+<section id="galeria" class="py-5">
+    <div class="container py-5">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold position-relative section-title d-inline-block">Galería</h2>
+        </div>
+        <div class="row g-4">
+            <!-- Imagen 1 -->
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm overflow-hidden gallery-card">
+                    <img src="producto.jpg" class="card-img-top" alt="Productos" style="height: 250px; object-fit: cover;">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold">Nuestros Productos</h5>
+                        <p class="card-text text-muted">Variedad de pescados y mariscos frescos.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Imagen 2 (Placeholder) -->
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm overflow-hidden gallery-card">
+                    <div class="bg-secondary" style="height: 250px; display: flex; align-items: center; justify-content: center; color: white;">
+                        <i class="bi bi-image fs-1"></i>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold">Faena Diaria</h5>
+                        <p class="card-text text-muted">Nuestros asociados en el mar.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Imagen 3 (Placeholder) -->
+            <div class="col-md-4">
+                <div class="card border-0 shadow-sm overflow-hidden gallery-card">
+                    <div class="bg-secondary" style="height: 250px; display: flex; align-items: center; justify-content: center; color: white;">
+                        <i class="bi bi-image fs-1"></i>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold">Comunidad</h5>
+                        <p class="card-text text-muted">Eventos y reuniones de la asociación.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contacto -->
+<section id="contacto" class="py-5 bg-light">
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <h2 class="fw-bold mb-4 position-relative section-title">Contáctanos</h2>
+                <p class="text-muted mb-4">¿Tienes alguna pregunta o estás interesado en unirte a ASOPROPESMAR? Déjanos un mensaje y te contactaremos pronto.</p>
+
+                <div class="d-flex align-items-center mb-3">
+                    <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 40px; height: 40px;">
+                        <i class="bi bi-geo-alt-fill"></i>
+                    </div>
+                    <div>
+                        <h6 class="mb-0 fw-bold">Ubicación</h6>
+                        <span class="text-muted">Manabí, Ecuador</span>
+                    </div>
+                </div>
+
+                <div class="d-flex align-items-center mb-3">
+                    <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 40px; height: 40px;">
+                        <i class="bi bi-envelope-fill"></i>
+                    </div>
+                    <div>
+                        <h6 class="mb-0 fw-bold">Email</h6>
+                        <span class="text-muted">info@asopropesmar.org</span>
+                    </div>
+                </div>
+
+                <div class="d-flex align-items-center">
+                    <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 40px; height: 40px;">
+                        <i class="bi bi-telephone-fill"></i>
+                    </div>
+                    <div>
+                        <h6 class="mb-0 fw-bold">Teléfono</h6>
+                        <span class="text-muted">+593 99 123 4567</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="card border-0 shadow p-4">
+                    <form>
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Nombre Completo</label>
+                            <input type="text" class="form-control" id="name" placeholder="Tu nombre">
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Correo Electrónico</label>
+                            <input type="email" class="form-control" id="email" placeholder="tu@email.com">
+                        </div>
+                        <div class="mb-4">
+                            <label for="message" class="form-label">Mensaje</label>
+                            <textarea class="form-control" id="message" rows="4" placeholder="¿En qué podemos ayudarte?"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100 py-2 fw-bold">Enviar Mensaje</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-dark text-white py-4">
+    <div class="container text-center">
+        <p class="mb-0">&copy; 2024 ASOPROPESMAR. Todos los derechos reservados.</p>
+    </div>
+</footer>
