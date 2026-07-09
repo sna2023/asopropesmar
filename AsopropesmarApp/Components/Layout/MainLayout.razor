@@ -1,0 +1,39 @@
+﻿@inherits LayoutComponentBase
+@inject NavigationManager _navigation
+@inject IHttpContextAccessor _contextAccessor
+
+<AuthorizeView>
+    <NotAuthorized>
+        @Body
+    </NotAuthorized>
+    <Authorized>
+        @Body
+    </Authorized>
+</AuthorizeView>
+
+<div id="blazor-error-ui">
+    An unhandled error has occurred.
+    <a href="" class="reload">Reload</a>
+    <a class="dismiss">🗙</a>
+</div>
+
+@code {
+    [CascadingParameter]
+    private Task<AuthenticationState>? AuthStat { get; set; }
+
+    protected async override Task OnInitializedAsync()
+    {
+        var authState = await AuthStat!;
+        var user = authState?.User;
+        if (user is null || user.Identity is null || !user.Identity.IsAuthenticated)
+        {
+            var currentPath = _navigation.ToBaseRelativePath(_navigation.Uri);
+            var loggedOutPath = Helpers.Route.Cuenta.Autenticacion.LoggedOut.TrimStart('/');
+
+            if (currentPath != loggedOutPath)
+            {
+                _navigation.NavigateTo(Helpers.Route.Cuenta.Autenticacion.LoggedOut, forceLoad: false);
+            }
+        }
+    }
+}
