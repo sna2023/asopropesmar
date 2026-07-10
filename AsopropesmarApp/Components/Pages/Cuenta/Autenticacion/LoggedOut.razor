@@ -1,0 +1,16 @@
+@page "/Cuenta/Autenticacion/LoggedOut"
+@layout Layout.MainLayout
+@using Microsoft.AspNetCore.Components.Authorization
+
+<PageTitle>Sesión Cerrada - ASOPROPESMAR</PageTitle>
+
+<div class="container mt-5 text-center text-white" style="background: rgba(0,0,0,0.7); padding: 3rem; border-radius: 15px;">
+    <i class="bi bi-box-arrow-right mb-4" style="font-size: 4rem; color: #4bcffa;"></i>
+    <h2 class="mb-3">Has cerrado sesión correctamente</h2>
+    <p class="lead mb-4">Gracias por visitar ASOPROPESMAR. Esperamos verte pronto.</p>
+
+    <!-- data-enhance-nav="false" is crucial here so Blazor doesn't try to intercept the standard redirect to the Razor Page -->
+    <a href="/Cuenta/Autenticacion/Login" data-enhance-nav="false" class="btn btn-lg btn-primary fw-bolder">
+        <i class="bi bi-person-circle me-1"></i> Iniciar Sesión Nuevamente
+    </a>
+</div>
