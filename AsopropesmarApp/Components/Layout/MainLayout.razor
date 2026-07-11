@@ -1,0 +1,88 @@
+@inherits LayoutComponentBase
+@inject NavigationManager Navigation
+@using Microsoft.AspNetCore.Components.Authorization
+
+<AuthorizeView>
+    <NotAuthorized>
+        @Body
+    </NotAuthorized>
+    <Authorized>
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg fixed-top">
+            <div class="container">
+                <a class="navbar-brand d-flex align-items-center" href="#">
+                    <div class="rounded-circle bg-white p-1 me-2">
+                        <img src="asopro.jpeg" alt="Logo" width="40" height="40" class="rounded-circle">
+                    </div>
+                    <span>ASOPROPESMAR</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="#inicio">Inicio</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#nosotros">Nosotros</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#servicios">Servicios</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#directorio">Directorio</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+                        <li class="nav-item ms-lg-3">
+                            <a class="btn btn-outline-light nav-btn" href="/Cuenta/Autenticacion/Logout" data-enhance-nav="false">
+                                <i class="bi bi-box-arrow-right me-1"></i> Cerrar Sesión
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        @Body
+
+        <!-- Footer -->
+        <footer class="footer text-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 mb-4">
+                        <h5>ASOPROPESMAR</h5>
+                        <p class="small">Asociación de Producción Pesquera Manabí Artesanal</p>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <h5>Enlaces</h5>
+                        <ul class="list-unstyled">
+                            <li><a href="#inicio" class="text-white-50 text-decoration-none">Inicio</a></li>
+                            <li><a href="#nosotros" class="text-white-50 text-decoration-none">Nosotros</a></li>
+                            <li><a href="#servicios" class="text-white-50 text-decoration-none">Servicios</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <h5>Datos 2026</h5>
+                        <p class="small">Más de 200 pescadores asociados</p>
+                        <p class="small">15+ años de experiencia</p>
+                    </div>
+                </div>
+                <hr style="border-color: rgba(255,255,255,0.2);">
+                <p>&copy; 2026 ASOPROPESMAR. Todos los derechos reservados.</p>
+            </div>
+        </footer>
+    </Authorized>
+</AuthorizeView>
+
+@code {
+    [CascadingParameter]
+    private Task<AuthenticationState> AuthStat { get; set; } = default!;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var authState = await AuthStat;
+        var user = authState?.User;
+        if (user is null || user.Identity is null || !user.Identity.IsAuthenticated)
+        {
+            var relativePath = "/" + Navigation.ToBaseRelativePath(Navigation.Uri);
+            if (relativePath != AsopropesmarApp.Helpers.Route.Cuenta.Autenticacion.LoggedOut &&
+                relativePath != AsopropesmarApp.Helpers.Route.Cuenta.Autenticacion.Login)
+            {
+                Navigation.NavigateTo(AsopropesmarApp.Helpers.Route.Cuenta.Autenticacion.LoggedOut, false, true);
+            }
+        }
+    }
+}
