@@ -1,0 +1,5 @@
+
+# .NET Ignore
+bin/
+obj/
+wwwroot/lib/bootstrap/
