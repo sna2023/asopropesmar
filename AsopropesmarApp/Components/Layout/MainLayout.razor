@@ -1,0 +1,60 @@
+@inherits LayoutComponentBase
+@inject NavigationManager _navigation
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor _context
+
+<AuthorizeView>
+    <NotAuthorized>
+        <article class="content px-4">
+            @Body
+        </article>
+    </NotAuthorized>
+    <Authorized>
+        <div class="page">
+            <div class="sidebar">
+                <NavMenu />
+            </div>
+
+            <main>
+                <div class="top-row px-4">
+                    <a href="@Helpers.Route.Cuenta.Autenticacion.Logout" data-enhance-nav="false">Cerrar Sesión</a>
+                    <a href="https://learn.microsoft.com/aspnet/core/" target="_blank">About</a>
+                </div>
+
+                <article class="content px-4">
+                    @Body
+                </article>
+            </main>
+        </div>
+
+        <div id="blazor-error-ui" data-nosnippet>
+            An unhandled error has occurred.
+            <a href="." class="reload">Reload</a>
+            <span class="dismiss">🗙</span>
+        </div>
+    </Authorized>
+</AuthorizeView>
+
+@code {
+    [CascadingParameter]
+    private Task<AuthenticationState>? AuthStat { get; set; }
+
+    protected async override Task OnInitializedAsync()
+    {
+        var user = AuthStat is not null ? (await AuthStat).User : null;
+        if (user is null || user.Identity is null || !user.Identity.IsAuthenticated)
+        {
+            if (_context?.HttpContext?.Request.Path != Helpers.Route.Cuenta.Autenticacion.LoggedOut &&
+                _context?.HttpContext?.Request.Path != Helpers.Route.Cuenta.Autenticacion.Login &&
+                _context?.HttpContext?.Request.Path != Helpers.Route.Cuenta.Autenticacion.Logout &&
+                _context?.HttpContext?.Request.Path != "/signin-oidc" &&
+                _context?.HttpContext?.Request.Path != "/signout-callback-oidc")
+            {
+                var relativePath = "/" + _navigation.ToBaseRelativePath(_navigation.Uri);
+                if (relativePath != Helpers.Route.Cuenta.Autenticacion.LoggedOut)
+                {
+                    _navigation.NavigateTo(Helpers.Route.Cuenta.Autenticacion.LoggedOut, false, true);
+                }
+            }
+        }
+    }
+}
