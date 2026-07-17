@@ -1,0 +1,25 @@
+@page "/"
+@using Microsoft.AspNetCore.Components.Authorization
+
+<PageTitle>Inicio - ASOPROPESMAR</PageTitle>
+
+<AuthorizeView>
+    <Authorized>
+        <div class="container mt-4">
+            <h1>Bienvenido a ASOPROPESMAR</h1>
+            <p>Has iniciado sesión correctamente.</p>
+            <p>Puedes acceder a las funciones protegidas de la aplicación.</p>
+            <div class="alert alert-info">
+                <strong>Token:</strong> @context.User.FindFirst("access_token")?.Value
+            </div>
+        </div>
+    </Authorized>
+    <NotAuthorized>
+        <div class="container mt-4">
+            <h1>ASOPROPESMAR</h1>
+            <p>Asociación de Producción Pesquera Manabí Artesanal</p>
+            <p>Por favor, inicia sesión para acceder a la aplicación.</p>
+            <a href="/Cuenta/Autenticacion/Login" class="btn btn-primary" data-enhance-nav="false">Iniciar Sesión</a>
+        </div>
+    </NotAuthorized>
+</AuthorizeView>
