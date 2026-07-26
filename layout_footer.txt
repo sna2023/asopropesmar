@@ -1,0 +1,35 @@
+    <!-- Footer -->
+    <footer class="footer text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5>ASOPROPESMAR</h5>
+                    <p class="small">Asociación de Producción Pesquera Manabí Artesanal</p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>Enlaces</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#inicio" class="text-white-50 text-decoration-none">Inicio</a></li>
+                        <li><a href="#nosotros" class="text-white-50 text-decoration-none">Nosotros</a></li>
+                        <li><a href="#servicios" class="text-white-50 text-decoration-none">Servicios</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>Datos 2026</h5>
+                    <p class="small">Más de 200 pescadores asociados</p>
+                    <p class="small">15+ años de experiencia</p>
+                </div>
+            </div>
+            <hr style="border-color: rgba(255,255,255,0.2);">
+            <p>&copy; 2026 ASOPROPESMAR. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Modal Login -->
+    <div class="modal fade" id="loginModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="bi bi-person-circle me-2"></i>Iniciar Sesión</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
