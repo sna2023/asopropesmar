@@ -1,0 +1,100 @@
+using AsopropesmarApp.Components;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication.OpenIdConnect;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using IdentityModel;
+using AsopropesmarApp.Helpers;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Components.Authorization;
+
+var builder = WebApplication.CreateBuilder(args);
+var config = builder.Configuration;
+
+// Add services to the container.
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddTransient<HttpCustomHandler>();
+builder.Services.AddHttpClient("api").AddHttpMessageHandler<HttpCustomHandler>();
+
+builder.Services.AddRazorPages();
+builder.Services.AddRazorComponents()
+    .AddInteractiveServerComponents();
+builder.Services.AddCascadingAuthenticationState();
+
+// Configure Authentication
+JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
+
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = OpenIdConnectDefaults.AuthenticationScheme;
+})
+.AddCookie(CookieAuthenticationDefaults.AuthenticationScheme, options =>
+{
+    options.SlidingExpiration = true;
+    options.ExpireTimeSpan = TimeSpan.FromMinutes(15);
+})
+.AddOpenIdConnect(OpenIdConnectDefaults.AuthenticationScheme, options =>
+{
+    options.Authority = config["Url:Identity.API"] ?? "https://auth.infor-business.com/";
+    options.ClientId = config["ClientId"] ?? "PLACEHOLDER-CLIENT-ID";
+    options.ClientSecret = config["Secret"] ?? "PLACEHOLDER-CLIENT-SECRET";
+
+    options.SaveTokens = true;
+    options.ResponseType = "code";
+    options.UsePkce = true;
+    options.GetClaimsFromUserInfoEndpoint = true;
+
+    options.Scope.Add("openid");
+    options.Scope.Add("Administracion.API");
+    options.Scope.Add("SRI.API");
+
+    options.SignedOutRedirectUri = "/Cuenta/Autenticacion/LoggedOut";
+
+    options.Events.OnTicketReceived = context =>
+    {
+        if (context.Properties != null)
+        {
+            context.Properties.ExpiresUtc = DateTime.UtcNow.AddHours(1);
+        }
+        return Task.CompletedTask;
+    };
+
+    options.Events.OnUserInformationReceived = eventArgs =>
+    {
+        var accessToken = eventArgs.ProtocolMessage.AccessToken;
+        if (eventArgs.Principal?.Identities != null && !string.IsNullOrEmpty(accessToken))
+        {
+            foreach (ClaimsIdentity item in eventArgs.Principal.Identities)
+            {
+                item.AddClaim(new Claim("access_token", accessToken));
+            }
+        }
+        return Task.CompletedTask;
+    };
+});
+
+var app = builder.Build();
+
+// Configure the HTTP request pipeline.
+if (!app.Environment.IsDevelopment())
+{
+    app.UseExceptionHandler("/Error", createScopeForErrors: true);
+    app.UseHsts();
+}
+app.UseStatusCodePagesWithReExecute("/not-found", createScopeForStatusCodePages: true);
+app.UseHttpsRedirection();
+
+app.UseRouting();
+
+app.UseAuthentication();
+app.UseAuthorization();
+
+app.UseAntiforgery();
+
+app.MapStaticAssets();
+app.MapRazorPages();
+app.MapRazorComponents<App>()
+    .AddInteractiveServerRenderMode();
+
+app.Run();
