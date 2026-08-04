@@ -1,0 +1,10 @@
+
+# .NET Build output
+bin/
+obj/
+
+# Webroot
+wwwroot/lib/
+AsopropesmarApp/bin/
+AsopropesmarApp/obj/
+AsopropesmarApp/wwwroot/lib/
