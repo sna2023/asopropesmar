@@ -1,0 +1,11 @@
+@page "/Cuenta/Autenticacion/LoggedOut"
+@using AsopropesmarApp.Helpers
+@layout Layout.MainLayout
+
+<PageTitle>Sesión Cerrada</PageTitle>
+
+<div class="container text-center mt-5">
+    <h1>Has cerrado sesión exitosamente.</h1>
+    <p>Gracias por usar el sistema de Asopropesmar.</p>
+    <a href="@Route.Cuenta.Autenticacion.Login" data-enhance-nav="false" class="btn btn-lg btn-primary fw-bolder">Iniciar Sesión</a>
+</div>
