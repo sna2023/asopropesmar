@@ -1,0 +1,6 @@
+# .NET Core
+bin/
+obj/
+
+# Webroot
+wwwroot/lib/
