@@ -1,0 +1,16 @@
+<<<<<<< SEARCH
+        <article class="content">
+            <AuthorizeView>
+                <Authorized>
+                    @Body
+                </Authorized>
+                <NotAuthorized>
+                    @Body
+                </NotAuthorized>
+            </AuthorizeView>
+        </article>
+=======
+        <article class="content">
+            @Body
+        </article>
+>>>>>>> REPLACE
