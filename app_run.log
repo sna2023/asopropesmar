@@ -1,0 +1,14 @@
+Using launch settings from AsopropesmarApp/Properties/launchSettings.json...
+Building...
+warn: Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager[35]
+      No XML encryptor configured. Key {6b9ad876-1278-4b48-8ce3-c5ecfdf8474c} may be persisted to storage in unencrypted form.
+info: Microsoft.Hosting.Lifetime[14]
+      Now listening on: http://localhost:5271
+info: Microsoft.Hosting.Lifetime[0]
+      Application started. Press Ctrl+C to shut down.
+info: Microsoft.Hosting.Lifetime[0]
+      Hosting environment: Development
+info: Microsoft.Hosting.Lifetime[0]
+      Content root path: /app/AsopropesmarApp
+info: Microsoft.Hosting.Lifetime[0]
+      Application is shutting down...
