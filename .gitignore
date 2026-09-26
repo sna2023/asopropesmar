@@ -1,0 +1,6 @@
+# .NET Build Artifacts
+bin/
+obj/
+
+# Blazor Static Assets
+wwwroot/lib/
