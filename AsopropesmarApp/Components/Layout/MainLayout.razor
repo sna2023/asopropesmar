@@ -1,0 +1,55 @@
+@inherits LayoutComponentBase
+@inject NavigationManager Navigation
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+
+<AuthorizeView>
+    <Authorized>
+        <div class="page">
+            <div class="sidebar">
+                <NavMenu />
+            </div>
+
+            <main>
+                <div class="top-row px-4">
+                    <a href="/Cuenta/Autenticacion/Logout" data-enhance-nav="false">Cerrar Sesión</a>
+                </div>
+
+                <article class="content px-4">
+                    @Body
+                </article>
+            </main>
+        </div>
+    </Authorized>
+    <NotAuthorized>
+        @Body
+    </NotAuthorized>
+</AuthorizeView>
+
+<div id="blazor-error-ui" data-nosnippet>
+    An unhandled error has occurred.
+    <a href="." class="reload">Reload</a>
+    <span class="dismiss">🗙</span>
+</div>
+
+@code {
+    [CascadingParameter]
+    private Task<AuthenticationState>? AuthStat { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        if (AuthStat != null)
+        {
+            var authState = await AuthStat;
+            var user = authState.User;
+            if (user == null || user.Identity == null || !user.Identity.IsAuthenticated)
+            {
+                var path = Navigation.ToBaseRelativePath(Navigation.Uri);
+                // Redirect if not already on the LoggedOut or Login page
+                if (!path.Contains("Cuenta/Autenticacion/LoggedOut") && !path.Contains("Cuenta/Autenticacion/Login"))
+                {
+                    Navigation.NavigateTo(Helpers.Route.Cuenta.Autenticacion.LoggedOut, forceLoad: true);
+                }
+            }
+        }
+    }
+}
