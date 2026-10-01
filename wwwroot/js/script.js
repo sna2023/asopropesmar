@@ -127,7 +127,7 @@ function showToast(message, type = 'info') {
 }
 
 // Login
-document.getElementById('loginForm').addEventListener('submit', (e) => {
+if(document.getElementById('loginForm')) document.getElementById('loginForm').addEventListener('submit', (e) => {
     e.preventDefault();
     const u = document.getElementById('username').value;
     const p = document.getElementById('password').value;
@@ -142,7 +142,7 @@ document.getElementById('loginForm').addEventListener('submit', (e) => {
 });
 
 // Nuevo miembro
-document.getElementById('memberForm').addEventListener('submit', async (e) => {
+if(document.getElementById('memberForm')) document.getElementById('memberForm').addEventListener('submit', async (e) => {
     e.preventDefault();
     const data = {
         firstName: document.getElementById('memberFirstName').value,
@@ -166,8 +166,10 @@ document.getElementById('memberForm').addEventListener('submit', async (e) => {
 
 // Inicializar
 document.addEventListener('DOMContentLoaded', async () => {
-    await initDB();
-    await renderTable();
+    window.initDB = initDB;
+    window.renderTable = renderTable;
+    // await initDB();
+    // await renderTable();
 });
 
 // Smooth scroll
