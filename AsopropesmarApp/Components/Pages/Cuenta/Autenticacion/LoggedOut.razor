@@ -1,0 +1,12 @@
+@page "/Cuenta/Autenticacion/LoggedOut"
+
+<div class="d-flex align-items-center justify-content-center min-vh-100" style="background-image: url('fondo.jpg'); background-size: cover; background-position: center; position: relative;">
+    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.6);"></div>
+    <div class="text-center text-white" style="position: relative; z-index: 1;">
+        <h1 class="display-4 fw-bold mb-4">Bienvenido a ASOPROPESMAR</h1>
+        <p class="lead mb-5">Por favor, inicie sesión para acceder al sistema.</p>
+        <a href="@Helpers.Route.Cuenta.Autenticacion.Login" class="btn btn-lg btn-primary fw-bolder px-5 py-3 rounded-pill shadow" data-enhance-nav="false">
+            Iniciar Sesión
+        </a>
+    </div>
+</div>
