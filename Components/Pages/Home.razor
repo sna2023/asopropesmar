@@ -1,0 +1,17 @@
+@page "/"
+
+<PageTitle>Inicio</PageTitle>
+
+<h1>Hola, mundo!</h1>
+
+<p>Bienvenido a AsopropesmarApp.</p>
+
+<AuthorizeView>
+    <Authorized>
+        <p>Estás autenticado como: @context.User.Identity?.Name</p>
+    </Authorized>
+    <NotAuthorized>
+        <p>No estás autenticado.</p>
+        <a href="@AsopropesmarApp.Helpers.Route.Cuenta.Autenticacion.Login" data-enhance-nav="false" class="btn btn-primary">Iniciar Sesión</a>
+    </NotAuthorized>
+</AuthorizeView>
