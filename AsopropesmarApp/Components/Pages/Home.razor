@@ -1,0 +1,146 @@
+@page "/"
+
+<PageTitle>Inicio</PageTitle>
+
+<!-- Hero Section -->
+<section id="inicio" class="hero-section">
+    <div class="container hero-content text-center">
+        <h1 class="display-4 fw-bold mb-4">ASOPROPESMAR</h1>
+        <p class="lead mb-5">Asociación de Producción Pesquera Manabí Artesanal</p>
+        <div class="d-flex justify-content-center gap-3">
+            <a href="#nosotros" class="btn btn-primary btn-lg rounded-pill px-5">Conócenos</a>
+            <a href="#contacto" class="btn btn-outline-light btn-lg rounded-pill px-5">Contáctanos</a>
+        </div>
+    </div>
+</section>
+
+<!-- Nosotros Section -->
+<section id="nosotros" class="section">
+    <div class="container">
+        <h2 class="section-title">Nuestra Asociación</h2>
+        <div class="row g-4 align-items-center">
+            <div class="col-lg-6">
+                <img src="images/producto.jpg" alt="Pescadores" class="img-fluid rounded-3 shadow-lg">
+            </div>
+            <div class="col-lg-6">
+                <div class="ps-lg-4">
+                    <h3 class="mb-4">Uniendo Fuerzas en el Mar</h3>
+                    <p class="lead text-muted">Somos una organización dedicada a promover el desarrollo sostenible de la pesca artesanal en Manabí.</p>
+                    <ul class="list-unstyled mt-4">
+                        <li class="mb-3 d-flex align-items-center">
+                            <i class="bi bi-check-circle-fill text-primary me-3 fs-5"></i>
+                            Defensa de los derechos de los pescadores artesanales
+                        </li>
+                        <li class="mb-3 d-flex align-items-center">
+                            <i class="bi bi-check-circle-fill text-primary me-3 fs-5"></i>
+                            Promoción de prácticas de pesca sostenibles
+                        </li>
+                        <li class="mb-3 d-flex align-items-center">
+                            <i class="bi bi-check-circle-fill text-primary me-3 fs-5"></i>
+                            Mejora de las condiciones socioeconómicas
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Servicios Section -->
+<section id="servicios" class="section bg-light">
+    <div class="container">
+        <h2 class="section-title">Nuestros Servicios</h2>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="service-card text-center p-4 h-100 shadow-sm rounded">
+                    <div class="icon-wrapper mb-4">
+                        <i class="bi bi-shield-check fs-1 text-primary"></i>
+                    </div>
+                    <h4>Asesoría Legal</h4>
+                    <p class="text-muted">Apoyo en trámites y permisos de pesca artesanal ante las autoridades competentes.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="service-card text-center p-4 h-100 shadow-sm rounded">
+                    <div class="icon-wrapper mb-4">
+                        <i class="bi bi-book fs-1 text-primary"></i>
+                    </div>
+                    <h4>Capacitación</h4>
+                    <p class="text-muted">Talleres sobre seguridad marítima, buenas prácticas pesqueras y conservación.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="service-card text-center p-4 h-100 shadow-sm rounded">
+                    <div class="icon-wrapper mb-4">
+                        <i class="bi bi-people fs-1 text-primary"></i>
+                    </div>
+                    <h4>Gestión Social</h4>
+                    <p class="text-muted">Programas de bienestar y apoyo para las familias de nuestros asociados.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Estadísticas & Base de Datos -->
+<section id="estadisticas" class="section statistics-section text-white position-relative" style="background-image: url('images/Descarga del Día.jpg'); background-size: cover; background-position: center; background-attachment: fixed;">
+    <div class="overlay position-absolute top-0 start-0 w-100 h-100 bg-dark" style="opacity: 0.8;"></div>
+    <div class="container position-relative z-index-1">
+        <h2 class="section-title text-white">Panel de Control</h2>
+
+        <div class="row g-4 text-center mb-5">
+            <div class="col-md-4">
+                <div class="stat-card p-4 rounded" style="background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px);">
+                    <i class="bi bi-people-fill fs-1 mb-3 text-primary"></i>
+                    <div class="stat-number fs-2 fw-bold" id="totalMembers">250</div>
+                    <p class="mb-0">Total Asociados</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="stat-card p-4 rounded" style="background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px);">
+                    <i class="bi bi-person-check-fill fs-1 mb-3 text-success"></i>
+                    <div class="stat-number fs-2 fw-bold" id="activeMembers">235</div>
+                    <p class="mb-0">Activos</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="stat-card p-4 rounded" style="background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px);">
+                    <i class="bi bi-person-dash-fill fs-1 mb-3 text-warning"></i>
+                    <div class="stat-number fs-2 fw-bold" id="inactiveMembers">15</div>
+                    <p class="mb-0">Inactivos</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contacto -->
+<section id="contacto" class="section contact-section" style="background-color: #2c3e50;">
+    <div class="container">
+        <h2 class="section-title text-white">Contacto</h2>
+        <div class="row g-4">
+            <div class="col-md-6">
+                <div class="contact-card bg-white p-4 rounded shadow-sm h-100">
+                    <h4 class="mb-4"><i class="bi bi-geo-alt me-2 text-primary"></i>Información de Contacto</h4>
+                    <div class="mb-3">
+                        <p><i class="bi bi-person-badge me-2 text-muted"></i><strong>Representante:</strong> Walter González Klegan</p>
+                        <p><i class="bi bi-telephone me-2 text-muted"></i><strong>Teléfono:</strong> +593 981452439</p>
+                        <p><i class="bi bi-envelope me-2 text-muted"></i><strong>Email:</strong> info@asopropesmar.org.ec</p>
+                        <p><i class="bi bi-geo-alt me-2 text-muted"></i><strong>Ubicación:</strong> Manta, Manabí, Ecuador</p>
+                        <p><i class="bi bi-clock me-2 text-muted"></i><strong>Horario:</strong> Lunes a Viernes 8:00 - 17:00</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="contact-card bg-white p-4 rounded shadow-sm h-100">
+                    <h4 class="mb-4"><i class="bi bi-map me-2 text-primary"></i>Nuestra Ubicación</h4>
+                    <div class="map-container rounded overflow-hidden">
+                        <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=-80.72%2C-0.96%2C-80.68%2C-0.92&amp;layer=mapnik&amp;marker=-0.95%2C-80.70"
+                                width="100%" height="300" style="border:0;" allowfullscreen loading="lazy"></iframe>
+                    </div>
+                    <p class="mt-3 text-center mb-0"><small class="text-muted">Puerto de Manta, Manabí - Ecuador</small></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
