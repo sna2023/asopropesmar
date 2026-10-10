@@ -1,0 +1,11 @@
+@page "/Cuenta/Autenticacion/LoggedOut"
+@using Microsoft.AspNetCore.Components.Authorization
+@using AsopropesmarApp.Helpers
+
+<PageTitle>Desconectado - ASOPROPESMAR</PageTitle>
+
+<div class="container text-center mt-5">
+    <h2>Has cerrado sesión</h2>
+    <p>Gracias por usar el sistema de ASOPROPESMAR.</p>
+    <a href="@Route.Cuenta.Autenticacion.Login" data-enhance-nav="false" class="btn btn-primary">Iniciar Sesión</a>
+</div>
