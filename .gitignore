@@ -1,0 +1,5 @@
+bin/
+obj/
+wwwroot/bootstrap/
+backup_static/
+global.json
