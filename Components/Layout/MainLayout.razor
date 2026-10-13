@@ -1,0 +1,67 @@
+@inherits LayoutComponentBase
+@inject NavigationManager _navigation
+
+<AuthorizeView>
+    <NotAuthorized>
+        @Body
+    </NotAuthorized>
+    <Authorized>
+        <!-- Navegación -->
+        <nav class="navbar navbar-expand-lg sticky-top" id="navbar">
+            <div class="container">
+                <a class="navbar-brand" href="#">
+                    <img src="asopro.jpeg" alt="ASOPROPESMAR" height="50" class="me-2">
+                </a>
+                <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navMenu">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0 fw-semibold">
+                        <li class="nav-item">
+                            <a class="nav-link px-3" href="#inicio">INICIO</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link px-3" href="#nosotros">NOSOTROS</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link px-3" href="#productos">PRODUCTOS</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link px-3" href="#contacto">CONTACTO</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link px-3" href="/Cuenta/Autenticacion/Logout" data-enhance-nav="false">CERRAR SESIÓN</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <main>
+            @Body
+        </main>
+    </Authorized>
+</AuthorizeView>
+
+@code {
+    [CascadingParameter]
+    private Task<AuthenticationState>? AuthStat { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        if (AuthStat != null)
+        {
+            var authState = await AuthStat;
+            var user = authState.User;
+
+            if (user is null || user.Identity is null || !user.Identity.IsAuthenticated)
+            {
+                if (_navigation.ToBaseRelativePath(_navigation.Uri) != "Cuenta/Autenticacion/LoggedOut")
+                {
+                    _navigation.NavigateTo("/Cuenta/Autenticacion/LoggedOut", false, true);
+                }
+            }
+        }
+    }
+}
