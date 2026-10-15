@@ -1,0 +1,137 @@
+@inherits LayoutComponentBase
+@inject NavigationManager _navigation
+
+<AuthorizeView>
+    <NotAuthorized>
+        @Body
+    </NotAuthorized>
+    <Authorized>
+        <!-- Navegación -->
+        <nav class="navbar navbar-expand-lg sticky-top" id="navbar">
+            <div class="container">
+                <a class="navbar-brand" href="#">
+                    <img src="images/asopro.jpeg" alt="ASOPROPESMAR" height="50" class="me-2">
+                </a>
+                <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navMenu">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="#inicio">Inicio</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#nosotros">Nosotros</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#servicios">Servicios</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#galeria">Galería</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#asociados">Asociados</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+                        <li class="nav-item ms-3">
+                            <a class="btn login-btn" href="@Helpers.Route.Cuenta.Autenticacion.Logout" data-enhance-nav="false">
+                                <i class="bi bi-person-circle me-1"></i> Cerrar Sesión
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        @Body
+
+        <!-- Footer -->
+        <footer class="footer text-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 mb-4">
+                        <h5>ASOPROPESMAR</h5>
+                        <p class="small">Asociación de Producción Pesquera Manabí Artesanal</p>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <h5>Enlaces</h5>
+                        <ul class="list-unstyled">
+                            <li><a href="#inicio" class="text-white-50 text-decoration-none">Inicio</a></li>
+                            <li><a href="#nosotros" class="text-white-50 text-decoration-none">Nosotros</a></li>
+                            <li><a href="#servicios" class="text-white-50 text-decoration-none">Servicios</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <h5>Datos 2026</h5>
+                        <p class="small">Más de 200 pescadores asociados</p>
+                        <p class="small">15+ años de experiencia</p>
+                    </div>
+                </div>
+                <hr style="border-color: rgba(255,255,255,0.2);">
+                <p>&copy; 2026 ASOPROPESMAR. Todos los derechos reservados.</p>
+            </div>
+        </footer>
+
+        <!-- Modal Nuevo Asociado -->
+        <div class="modal fade" id="memberModal" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title"><i class="bi bi-person-plus me-2"></i>Nuevo Asociado</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="memberForm">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Nombres *</label>
+                                    <input type="text" class="form-control" id="memberFirstName" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Apellidos *</label>
+                                    <input type="text" class="form-control" id="memberLastName" required>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Email *</label>
+                                <input type="email" class="form-control" id="memberEmail" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Teléfono *</label>
+                                <input type="tel" class="form-control" id="memberPhone" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Tipo</label>
+                                <select class="form-select" id="memberType">
+                                    <option value="pescador">Pescador</option>
+                                    <option value="acuicultor">Acuicultor</option>
+                                    <option value="procesador">Procesador</option>
+                                    <option value="comerciante">Comerciante</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Estado</label>
+                                <select class="form-select" id="memberStatus">
+                                    <option value="activo">Activo</option>
+                                    <option value="inactivo">Inactivo</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100">Guardar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Toast Container -->
+        <div class="toast-container" id="toastContainer"></div>
+    </Authorized>
+</AuthorizeView>
+
+@code {
+    [CascadingParameter]
+    private Task<AuthenticationState>? AuthStat { get; set; }
+
+    protected async override Task OnInitializedAsync()
+    {
+        var user = (await AuthStat!)?.User;
+        if (user is null || user.Identity is null || !user.Identity.IsAuthenticated)
+        {
+            var uri = new Uri(_navigation.Uri);
+            if (!uri.AbsolutePath.Equals(Helpers.Route.Cuenta.Autenticacion.LoggedOut, StringComparison.OrdinalIgnoreCase))
+            {
+                _navigation.NavigateTo(Helpers.Route.Cuenta.Autenticacion.LoggedOut, false, true);
+            }
+        }
+    }
+}

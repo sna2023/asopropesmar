@@ -1,0 +1,15 @@
+@page "/Cuenta/Autenticacion/LoggedOut"
+
+<PageTitle>Sesión Cerrada</PageTitle>
+
+<div class="container d-flex flex-column justify-content-center align-items-center" style="min-height: 80vh;">
+    <div class="card shadow-sm p-5 text-center" style="max-width: 500px; border-radius: 15px;">
+        <i class="bi bi-box-arrow-right text-primary mb-4" style="font-size: 4rem;"></i>
+        <h2 class="mb-3">Has cerrado sesión correctamente</h2>
+        <p class="text-muted mb-4">Gracias por usar la aplicación de Asopropesmar. Tu sesión ha sido terminada de forma segura.</p>
+
+        <a href="@Helpers.Route.Cuenta.Autenticacion.Login" data-enhance-nav="false" class="btn btn-lg btn-primary fw-bolder">
+            <i class="bi bi-box-arrow-in-right me-2"></i>Volver a Iniciar Sesión
+        </a>
+    </div>
+</div>
