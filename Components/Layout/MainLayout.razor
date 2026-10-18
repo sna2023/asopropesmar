@@ -1,0 +1,54 @@
+@inherits LayoutComponentBase
+@inject NavigationManager _navigation
+
+<AuthorizeView>
+    <NotAuthorized>
+        @Body
+    </NotAuthorized>
+    <Authorized>
+        <div class="page">
+            <div class="sidebar">
+                <NavMenu />
+            </div>
+
+            <main>
+                <div class="top-row px-4">
+                    <span>Bienvenido, @context.User.Identity?.Name</span>
+                    <a href="/Cuenta/Autenticacion/Logout" data-enhance-nav="false" class="btn btn-outline-danger btn-sm ms-3">Cerrar Sesión</a>
+                </div>
+
+                <article class="content px-4">
+                    @Body
+                </article>
+            </main>
+        </div>
+
+        <div id="blazor-error-ui">
+            An unhandled error has occurred.
+            <a href="" class="reload">Reload</a>
+            <a class="dismiss">🗙</a>
+        </div>
+    </Authorized>
+</AuthorizeView>
+
+@code {
+    [CascadingParameter]
+    private Task<AuthenticationState>? AuthStat { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        if (AuthStat != null)
+        {
+            var authState = await AuthStat;
+            var user = authState.User;
+            if (user.Identity == null || !user.Identity.IsAuthenticated)
+            {
+                var currentPath = _navigation.ToBaseRelativePath(_navigation.Uri);
+                if (!currentPath.Equals(AsopropesmarApp.Helpers.Route.Cuenta.Autenticacion.LoggedOut.TrimStart('/'), StringComparison.OrdinalIgnoreCase))
+                {
+                    _navigation.NavigateTo(AsopropesmarApp.Helpers.Route.Cuenta.Autenticacion.LoggedOut, false, true);
+                }
+            }
+        }
+    }
+}
