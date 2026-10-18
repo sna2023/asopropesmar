@@ -1,0 +1,12 @@
+@page "/"
+@inject NavigationManager _navigation
+
+<PageTitle>Inicio</PageTitle>
+
+<AuthorizeView>
+    <Authorized>
+        <h1>Bienvenido a ASOPROPESMAR</h1>
+        <p>Has iniciado sesión exitosamente con OpenID Connect.</p>
+        <p>Tu nombre es: @context.User.Identity?.Name</p>
+    </Authorized>
+</AuthorizeView>
