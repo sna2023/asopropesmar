@@ -1,0 +1,41 @@
+    <!-- Hero Section con peces -->
+    <section id="inicio" class="hero-section">
+        <!-- Peces nadando -->
+
+        <div class="fish" style="top: 15%; animation-duration: 12s; animation-delay: 0s;">
+            <span class="iconify" data-icon="noto:fish" style="font-size: 40px; color: #4bcffa;"></span>
+        </div>
+        <div class="fish" style="top: 35%; animation-duration: 18s; animation-delay: -5s;">
+            <span class="iconify" data-icon="noto:fish" style="font-size: 32px; color: #f4d03f;"></span>
+        </div>
+        <div class="fish" style="top: 55%; animation-duration: 15s; animation-delay: -10s;">
+            <span class="iconify" data-icon="noto:fish" style="font-size: 45px; color: #4bcffa;"></span>
+        </div>
+        <div class="fish" style="top: 75%; animation-duration: 20s; animation-delay: -3s;">
+            <span class="iconify" data-icon="noto:fish" style="font-size: 28px; color: #e74c3c;"></span>
+        </div>
+        <div class="fish" style="top: 25%; animation-duration: 14s; animation-delay: -8s;">
+            <span class="iconify" data-icon="noto:fish" style="font-size: 38px; color: #f4d03f;"></span>
+        </div>
+
+        <!-- Burbujas -->
+        <div class="bubble" style="left: 10%; width: 20px; height: 20px; animation-delay: 0s;"></div>
+        <div class="bubble" style="left: 30%; width: 15px; height: 15px; animation-delay: 2s;"></div>
+        <div class="bubble" style="left: 50%; width: 25px; height: 25px; animation-delay: 4s;"></div>
+        <div class="bubble" style="left: 70%; width: 18px; height: 18px; animation-delay: 1s;"></div>
+        <div class="bubble" style="left: 90%; width: 22px; height: 22px; animation-delay: 3s;"></div>
+
+        <div class="container hero-content text-center text-white">
+            <h1 class="hero-title mb-4">ASOPROPESMAR</h1>
+            <p class="hero-subtitle mb-4">Asociación de Producción Pesquera Manabí Artesanal</p>
+            <p class="lead mb-4">Promoviendo la pesca sostenible y el desarrollo comunitario en Manabí, Ecuador</p>
+            <div>
+                <a href="#nosotros" class="btn btn-primary me-3">Conócenos</a>
+                <a href="#contacto" class="btn btn-outline-light">Contáctanos</a>
+            </div>
+        </div>
+
+        <div class="wave-container">
+            <div class="wave" style="height: 150px;"></div>
+        </div>
+    </section>

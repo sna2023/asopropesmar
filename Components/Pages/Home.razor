@@ -1,0 +1,283 @@
+@page "/"
+@attribute [Authorize]
+
+<PageTitle>Inicio - ASOPROPESMAR</PageTitle>
+
+<!-- Contenido Principal Extraído del index.html Original -->
+
+<!-- Hero Section con peces -->
+<section id="inicio" class="hero-section">
+    <!-- Peces nadando -->
+    <div class="fish" style="top: 15%; animation-duration: 12s; animation-delay: 0s;">
+        <span class="iconify" data-icon="noto:fish" style="font-size: 40px; color: #4bcffa;"></span>
+    </div>
+    <div class="fish" style="top: 35%; animation-duration: 18s; animation-delay: -5s;">
+        <span class="iconify" data-icon="noto:fish" style="font-size: 32px; color: #f4d03f;"></span>
+    </div>
+    <div class="fish" style="top: 55%; animation-duration: 15s; animation-delay: -2s;">
+        <span class="iconify" data-icon="noto:fish" style="font-size: 45px; color: #ff7675;"></span>
+    </div>
+    <div class="fish" style="top: 75%; animation-duration: 20s; animation-delay: -8s;">
+        <span class="iconify" data-icon="noto:fish" style="font-size: 38px; color: #a29bfe;"></span>
+    </div>
+
+    <!-- Burbujas -->
+    <div class="bubble" style="left: 10%; animation-duration: 4s; animation-delay: 0s; width: 15px; height: 15px;"></div>
+    <div class="bubble" style="left: 20%; animation-duration: 5s; animation-delay: 1s; width: 25px; height: 25px;"></div>
+    <div class="bubble" style="left: 35%; animation-duration: 3s; animation-delay: 2s; width: 10px; height: 10px;"></div>
+    <div class="bubble" style="left: 50%; animation-duration: 6s; animation-delay: 0.5s; width: 20px; height: 20px;"></div>
+    <div class="bubble" style="left: 65%; animation-duration: 4.5s; animation-delay: 1.5s; width: 18px; height: 18px;"></div>
+    <div class="bubble" style="left: 80%; animation-duration: 5.5s; animation-delay: 0.2s; width: 22px; height: 22px;"></div>
+    <div class="bubble" style="left: 90%; animation-duration: 3.5s; animation-delay: 2.5s; width: 12px; height: 12px;"></div>
+
+    <div class="container hero-content text-center">
+        <h1 class="display-3 fw-bold mb-4 text-white text-shadow-lg">Bienvenidos a ASOPROPESMAR</h1>
+        <p class="lead mb-4 fs-3 text-white text-shadow">Asociación de Producción Pesquera Manabí Artesanal</p>
+        <p class="mb-5 fs-5 text-white-50">Uniendo fuerzas por el desarrollo sostenible de la pesca artesanal</p>
+        <div class="d-flex justify-content-center gap-3">
+            <a href="#asociados" class="btn btn-primary btn-lg px-4 py-2 rounded-pill shadow-lg hover-scale">
+                <i class="bi bi-people-fill me-2"></i>Nuestros Asociados
+            </a>
+            <a href="#contacto" class="btn btn-outline-light btn-lg px-4 py-2 rounded-pill shadow-lg hover-scale">
+                <i class="bi bi-envelope-fill me-2"></i>Contáctanos
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Nosotros -->
+<section id="nosotros" class="section bg-light">
+    <div class="container">
+        <h2 class="section-title text-dark">Sobre Nosotros</h2>
+        <div class="row g-4 align-items-center">
+            <div class="col-md-6">
+                <img src="Descarga del Día.jpg" alt="Pescadores" class="img-fluid rounded shadow-lg">
+            </div>
+            <div class="col-md-6">
+                <div class="card border-0 shadow-sm mb-4">
+                    <div class="card-body p-4">
+                        <h4 class="card-title text-primary"><i class="bi bi-bullseye me-2"></i>Misión</h4>
+                        <p class="card-text">Promover el desarrollo integral y sostenible de la pesca artesanal en Manabí, mejorando la calidad de vida de nuestros asociados mediante prácticas responsables, capacitación continua y acceso a mejores mercados.</p>
+                    </div>
+                </div>
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body p-4">
+                        <h4 class="card-title text-primary"><i class="bi bi-eye me-2"></i>Visión</h4>
+                        <p class="card-text">Ser la asociación pesquera artesanal líder en Ecuador, reconocida por la calidad de sus productos, el compromiso ambiental y el bienestar de sus comunidades para el año 2030.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Servicios -->
+<section id="servicios" class="section text-white" style="background-color: var(--primary-color);">
+    <div class="container">
+        <h2 class="section-title text-white">Nuestros Servicios</h2>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="service-card text-dark">
+                    <i class="bi bi-anchor text-primary mb-3" style="font-size: 2.5rem;"></i>
+                    <h4>Pesca Responsable</h4>
+                    <p>Fomentamos técnicas de pesca que protegen el ecosistema marino y aseguran el recurso para futuras generaciones.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="service-card text-dark">
+                    <i class="bi bi-shield-check text-primary mb-3" style="font-size: 2.5rem;"></i>
+                    <h4>Calidad Garantizada</h4>
+                    <p>Procesos rigurosos de control desde la captura hasta la comercialización para ofrecer los mejores productos.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="service-card text-dark">
+                    <i class="bi bi-book text-primary mb-3" style="font-size: 2.5rem;"></i>
+                    <h4>Capacitación</h4>
+                    <p>Programas de formación continua en seguridad marítima, normativas y nuevas tecnologías pesqueras.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Galería -->
+<section id="galeria" class="section bg-light">
+    <div class="container">
+        <h2 class="section-title text-dark">Galería de Productos</h2>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="gallery-item">
+                    <img src="producto.jpg" alt="Pescado Fresco" class="img-fluid rounded shadow w-100 h-100 object-fit-cover">
+                    <div class="gallery-overlay">
+                        <h5>Pescado Fresco del Día</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="gallery-item">
+                    <img src="asopro.jpeg" alt="Instalaciones" class="img-fluid rounded shadow w-100 h-100 object-fit-cover">
+                    <div class="gallery-overlay">
+                        <h5>Nuestras Instalaciones</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="gallery-item">
+                    <img src="fondo.jpg" alt="Embarcaciones" class="img-fluid rounded shadow w-100 h-100 object-fit-cover">
+                    <div class="gallery-overlay">
+                        <h5>Flota Artesanal</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Asociados y Base de Datos -->
+<section id="asociados" class="section" style="background-color: #f8f9fa;">
+    <div class="container">
+        <h2 class="section-title text-dark">Nuestros Asociados</h2>
+
+        <div class="row mb-5 text-center g-4">
+            <div class="col-md-4">
+                <div class="stat-card">
+                    <i class="bi bi-people-fill fs-1 mb-3"></i>
+                    <div class="stat-number" id="totalMembers">0</div>
+                    <p>Total Asociados</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="stat-card">
+                    <i class="bi bi-person-check-fill fs-1 mb-3"></i>
+                    <div class="stat-number" id="activeMembers">0</div>
+                    <p>Activos</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="stat-card">
+                    <i class="bi bi-person-dash-fill fs-1 mb-3"></i>
+                    <div class="stat-number" id="inactiveMembers">0</div>
+                    <p>Inactivos</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="db-section">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h4 class="mb-0"><i class="bi bi-database me-2"></i>Base de Datos de Asociados</h4>
+                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#memberModal">
+                    <i class="bi bi-plus-circle me-1"></i> Nuevo Asociado
+                </button>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-hover" id="membersTable">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>Email</th>
+                            <th>Teléfono</th>
+                            <th>Tipo</th>
+                            <th>Estado</th>
+                            <th>Fecha</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="membersTableBody"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contacto -->
+<section id="contacto" class="section contact-section">
+    <div class="container">
+        <h2 class="section-title" style="color: white;">Contacto</h2>
+        <div class="row g-4">
+            <div class="col-md-6">
+                <div class="contact-card">
+                    <h4 class="mb-4"><i class="bi bi-geo-alt me-2"></i>Información de Contacto</h4>
+                    <div class="mb-3">
+                        <p><i class="bi bi-person-badge me-2"></i><strong>Representante:</strong> Walter González Klegan</p>
+                        <p><i class="bi bi-telephone me-2"></i><strong>Teléfono:</strong> +593 981452439</p>
+                        <p><i class="bi bi-envelope me-2"></i><strong>Email:</strong> info@asopropesmar.org.ec</p>
+                        <p><i class="bi bi-geo-alt me-2"></i><strong>Ubicación:</strong> Manta, Manabí, Ecuador</p>
+                        <p><i class="bi bi-clock me-2"></i><strong>Horario:</strong> Lunes a Viernes 8:00 - 17:00</p>
+                    </div>
+                    <div class="mt-4">
+                        <a href="#" class="btn btn-outline-light me-2"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="btn btn-outline-light me-2"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="btn btn-outline-light"><i class="bi bi-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="contact-card">
+                    <h4 class="mb-4"><i class="bi bi-map me-2"></i>Nuestra Ubicación</h4>
+                    <div class="map-container">
+                        <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=-80.72%2C-0.96%2C-80.68%2C-0.92&amp;layer=mapnik&amp;marker=-0.95%2C-80.70"
+                                width="100%" height="300" style="border:0; border-radius: 15px;" allowfullscreen loading="lazy"></iframe>
+                    </div>
+                    <p class="mt-3 text-center"><small> Puerto de Manta, Manabí - Ecuador</small></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Modals extraídos del index.html para que funcionen con bootstrap.js -->
+<!-- Modal Nuevo Asociado -->
+<div class="modal fade" id="memberModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content text-dark">
+            <div class="modal-header">
+                <h5 class="modal-title"><i class="bi bi-person-plus me-2"></i>Nuevo Asociado</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form id="memberForm">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Nombres *</label>
+                            <input type="text" class="form-control" id="memberFirstName" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Apellidos *</label>
+                            <input type="text" class="form-control" id="memberLastName" required>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Email *</label>
+                        <input type="email" class="form-control" id="memberEmail" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Teléfono *</label>
+                        <input type="tel" class="form-control" id="memberPhone" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Tipo</label>
+                        <select class="form-select" id="memberType">
+                            <option value="pescador">Pescador</option>
+                            <option value="acuicultor">Acuicultor</option>
+                            <option value="procesador">Procesador</option>
+                            <option value="comerciante">Comerciante</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Estado</label>
+                        <select class="form-select" id="memberStatus">
+                            <option value="activo">Activo</option>
+                            <option value="inactivo">Inactivo</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Guardar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Toast Container -->
+<div class="toast-container" id="toastContainer"></div>

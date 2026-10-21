@@ -1,0 +1,62 @@
+    <!-- Galería -->
+    <section id="galeria" class="section gallery-section">
+        <div class="container">
+            <h2 class="section-title gallery-title">Galería</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&h=400&fit=crop" alt="Pesca artesanal">
+                        <div class="gallery-overlay">
+                            <h5>Embarcaciones Artesanales</h5>
+                            <p>Traditional fishing boats in Manta</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="gallery-item">
+                        <img src="Descarga del Día.jpg" alt="Descarga del Día">
+                        <div class="gallery-overlay">
+                            <h5>Descarga del Día</h5>
+                            <p>Fresh catch from the Pacific</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="gallery-item">
+                        <img src="producto.jpg" alt="Productos del Mar">
+                        <div class="gallery-overlay">
+                            <h5>Productos del Mar</h5>
+                            <p>Variety of seafood from Manabí</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1569263979104-865ab7dd8d17?w=600&h=400&fit=crop" alt="Puerto">
+                        <div class="gallery-overlay">
+                            <h5>Puerto de Manta</h5>
+                            <p>Harbor activity</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1518837695005-2083093ee35b?w=600&h=400&fit=crop" alt="Océano">
+                        <div class="gallery-overlay">
+                            <h5>Nuestras Aguas</h5>
+                            <p>Pacific Ocean waters</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1523676167721-a48d50a7f7c4?w=600&h=400&fit=crop" alt="Barcos">
+                        <div class="gallery-overlay">
+                            <h5>Flota Pesquera</h5>
+                            <p>Fishing fleet at sea</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>

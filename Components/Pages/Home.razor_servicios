@@ -1,0 +1,72 @@
+    <!-- Servicios -->
+    <section id="servicios" class="section bg-light">
+        <div class="container">
+            <h2 class="section-title">Servicios y Actividades</h2>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="service-card">
+                        <div class="service-header">
+                            <i class="bi bi-book-fill fs-3"></i>
+                            <h5 class="mt-2">Capacitación Técnica</h5>
+                        </div>
+                        <div class="service-body">
+                            <p class="small">Técnicas de pesca sostenible, seguridad marítima, manejo post-cosecha y conservación.</p>
+                            <ul class="service-list">
+                                <li>Buenas prácticas pesqueras</li>
+                                <li>Seguridad en el mar</li>
+                                <li>Manejo de equipos</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="service-card">
+                        <div class="service-header">
+                            <i class="bi bi-file-text-fill fs-3"></i>
+                            <h5 class="mt-2">Asesoría Legal</h5>
+                        </div>
+                        <div class="service-body">
+                            <p class="small">Trámites legales, permisos de pesca, formalización y financiamiento.</p>
+                            <ul class="service-list">
+                                <li>Licencias y permisos</li>
+                                <li>Formalización empresarial</li>
+                                <li>Créditos y subsidios</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="service-card">
+                        <div class="service-header">
+                            <i class="bi bi-cart-fill fs-3"></i>
+                            <h5 class="mt-2">Comercialización</h5>
+                        </div>
+                        <div class="service-body">
+                            <p class="small">Venta directa, ferias y mercados especializados.</p>
+                            <ul class="service-list">
+                                <li>Canales de venta</li>
+                                <li>Ferias locales y nacionales</li>
+                                <li>Mercados sostenibles</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="service-card">
+                        <div class="service-header">
+                            <i class="bi bi-tree-fill fs-3"></i>
+                            <h5 class="mt-2">Gestión Ambiental</h5>
+                        </div>
+                        <div class="service-body">
+                            <p class="small">Pesca responsable y conservación marina.</p>
+                            <ul class="service-list">
+                                <li>Pesca responsable</li>
+                                <li>Monitoreo de recursos</li>
+                                <li>Proyectos de conservación</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
