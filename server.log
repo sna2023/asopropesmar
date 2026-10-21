@@ -1,0 +1,13 @@
+Building...
+info: Microsoft.Hosting.Lifetime[14]
+      Now listening on: http://localhost:5000
+info: Microsoft.Hosting.Lifetime[0]
+      Application started. Press Ctrl+C to shut down.
+info: Microsoft.Hosting.Lifetime[0]
+      Hosting environment: Development
+info: Microsoft.Hosting.Lifetime[0]
+      Content root path: /app
+warn: Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware[3]
+      Failed to determine the https port for redirect.
+warn: Microsoft.AspNetCore.Http.ResponseCookies[1]
+      The cookie '.AspNetCore.OpenIdConnect.Nonce.CfDJ8Boi_FskKO9NqRHhY_8idYi7ZKN2Yh0Ntd0Zxks2nf-GG6hPNRKB4z7nnYxGdi10Pq_zfiqW5XHVBxXEh3ERMa-mGMoke4tQ_kBCSksJD_-tambYo0aH0mRPz-rFICpjX8RdJQexsZPih5agwrehtAYM17KlW1DyOjo9qhEXomHOLbx-OFDbyyVGflA9xQj5Y00lzWcB1jRnjGSMD0D2eeXR6zyvgQaJMIMtLyafg2Qbp0vOFTztpFlXLguuK0D-4KfZQRRoOX0n2ZxSKylj9vY' has set 'SameSite=None' and must also set 'Secure'.
