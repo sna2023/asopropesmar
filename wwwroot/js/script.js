@@ -126,21 +126,6 @@ function showToast(message, type = 'info') {
     setTimeout(() => toast.remove(), 3000);
 }
 
-// Login
-document.getElementById('loginForm').addEventListener('submit', (e) => {
-    e.preventDefault();
-    const u = document.getElementById('username').value;
-    const p = document.getElementById('password').value;
-    
-    if ((u === 'admin' && p === 'admin123') || (u === 'asopropesmar' && p === '123456')) {
-        currentUser = { name: u };
-        bootstrap.Modal.getInstance(document.getElementById('loginModal')).hide();
-        showToast('Bienvenido a ASOPROPESMAR 2026', 'success');
-    } else {
-        showToast('Credenciales incorrectas', 'danger');
-    }
-});
-
 // Nuevo miembro
 document.getElementById('memberForm').addEventListener('submit', async (e) => {
     e.preventDefault();
