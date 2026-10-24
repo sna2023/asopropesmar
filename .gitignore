@@ -1,0 +1,6 @@
+# .NET Core
+bin/
+obj/
+
+# Blazor static artifacts
+wwwroot/bootstrap/
