@@ -1,0 +1,29 @@
+@inherits LayoutComponentBase
+@inject NavigationManager _navigation
+
+<AuthorizeView>
+    <NotAuthorized>
+        @Body
+    </NotAuthorized>
+    <Authorized>
+        @Body
+    </Authorized>
+</AuthorizeView>
+
+@code {
+    [CascadingParameter]
+    private Task<AuthenticationState>? AuthStat { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        if (AuthStat is not null)
+        {
+            var user = (await AuthStat).User;
+            if (user is null || user.Identity is null || !user.Identity.IsAuthenticated)
+            {
+                if (_navigation.ToBaseRelativePath(_navigation.Uri) != "Cuenta/Autenticacion/LoggedOut")
+                    _navigation.NavigateTo(Helpers.Route.Cuenta.Autenticacion.LoggedOut, false, true);
+            }
+        }
+    }
+}

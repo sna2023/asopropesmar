@@ -1,0 +1,17 @@
+<CascadingAuthenticationState>
+    <Router AppAssembly="@typeof(Program).Assembly">
+        <Found Context="routeData">
+            <AuthorizeRouteView RouteData="@routeData" DefaultLayout="@typeof(Layout.MainLayout)" />
+            <FocusOnNavigate RouteData="@routeData" Selector="h1" />
+        </Found>
+        <NotFound>
+            <PageTitle>No encontrado</PageTitle>
+            <LayoutView Layout="@typeof(Layout.MainLayout)">
+                <div class="container text-center mt-5">
+                    <h1>404</h1>
+                    <p role="alert">Lo sentimos, no hay nada en esta dirección.</p>
+                </div>
+            </LayoutView>
+        </NotFound>
+    </Router>
+</CascadingAuthenticationState>
