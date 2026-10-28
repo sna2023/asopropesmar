@@ -1,0 +1,340 @@
+@page "/"
+
+<nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="#inicio">
+            <i class="bi bi-water"></i> ASOPROPESMAR
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#inicio">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#nosotros">Nosotros</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#servicios">Servicios</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#miembros">Directiva</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#admin">Administración</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contacto">Contacto</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn btn-outline-light ms-2" href="/Cuenta/Autenticacion/Logout" data-enhance-nav="false">
+                        <i class="bi bi-box-arrow-right"></i> Cerrar Sesión
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<section id="inicio" class="hero-section">
+    <div class="container">
+        <div class="hero-content">
+            <h1 class="display-4 fw-bold mb-4">Uniendo fuerzas por el mar y nuestra gente</h1>
+            <p class="lead mb-4">Trabajando juntos por un desarrollo pesquero sostenible en Manabí.</p>
+            <div class="d-flex justify-content-center gap-3">
+                <a href="#nosotros" class="btn btn-primary btn-lg px-4">Conócenos</a>
+                <a href="#contacto" class="btn btn-outline-light btn-lg px-4">Contáctanos</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Nosotros -->
+<section id="nosotros" class="section bg-light text-dark">
+    <div class="container">
+        <h2 class="section-title">Sobre Nosotros</h2>
+        <div class="row align-items-center">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <img src="asopro.jpeg" alt="Asociación" class="img-fluid rounded shadow">
+            </div>
+            <div class="col-lg-6">
+                <h3 class="mb-4">Nuestra Historia</h3>
+                <p>ASOPROPESMAR es la Asociación de Producción Pesquera Manabí Artesanal, fundada con el propósito de mejorar la calidad de vida de nuestros pescadores artesanales y sus familias, promoviendo prácticas de pesca responsables y sostenibles en las costas ecuatorianas.</p>
+                <div class="row mt-4">
+                    <div class="col-sm-6 mb-3">
+                        <h5><i class="bi bi-bullseye text-primary me-2"></i>Misión</h5>
+                        <p class="small">Promover el desarrollo sostenible del sector pesquero artesanal de Manabí a través de la organización y capacitación de sus miembros.</p>
+                    </div>
+                    <div class="col-sm-6 mb-3">
+                        <h5><i class="bi bi-eye text-primary me-2"></i>Visión</h5>
+                        <p class="small">Ser la organización líder en producción pesquera artesanal, reconocida por sus prácticas sostenibles y el bienestar de sus asociados.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Servicios -->
+<section id="servicios" class="section text-white">
+    <div class="container">
+        <h2 class="section-title text-white">Nuestros Servicios</h2>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card bg-dark text-white h-100 border-secondary">
+                    <div class="card-body text-center p-4">
+                        <i class="bi bi-diagram-3 display-4 text-primary mb-3 d-block"></i>
+                        <h4>Organización Gremial</h4>
+                        <p class="small mb-0">Representación legal y defensa de los derechos de nuestros asociados ante las autoridades competentes.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card bg-dark text-white h-100 border-secondary">
+                    <div class="card-body text-center p-4">
+                        <i class="bi bi-book display-4 text-primary mb-3 d-block"></i>
+                        <h4>Capacitación</h4>
+                        <p class="small mb-0">Programas de formación en técnicas de pesca sostenible, seguridad marítima y administración.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card bg-dark text-white h-100 border-secondary">
+                    <div class="card-body text-center p-4">
+                        <i class="bi bi-shop display-4 text-primary mb-3 d-block"></i>
+                        <h4>Comercialización</h4>
+                        <p class="small mb-0">Apoyo en la comercialización directa de productos del mar para mejorar los ingresos familiares.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Miembros de la Directiva -->
+<section id="miembros" class="section bg-light text-dark">
+    <div class="container">
+        <h2 class="section-title">Nuestra Directiva</h2>
+        <div class="row g-4 justify-content-center">
+            <div class="col-md-4">
+                <div class="member-card text-center">
+                    <img src="https://via.placeholder.com/150" alt="Presidente" class="member-img">
+                    <h4 class="mb-1">Walter González</h4>
+                    <p class="text-primary mb-3">Presidente</p>
+                    <p class="small">Líder comprometido con el desarrollo de la pesca artesanal en Manabí.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="member-card text-center">
+                    <img src="https://via.placeholder.com/150" alt="Vicepresidente" class="member-img">
+                    <h4 class="mb-1">María Delgado</h4>
+                    <p class="text-primary mb-3">Vicepresidenta</p>
+                    <p class="small">Especialista en desarrollo comunitario y gestión de proyectos pesqueros.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="member-card text-center">
+                    <img src="https://via.placeholder.com/150" alt="Secretario" class="member-img">
+                    <h4 class="mb-1">Carlos Mendoza</h4>
+                    <p class="text-primary mb-3">Secretario General</p>
+                    <p class="small">Encargado de la coordinación administrativa y registro de asociados.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Panel de Administración -->
+<section id="admin" class="section bg-dark">
+    <div class="container">
+        <h2 class="section-title text-white">Panel de Administración</h2>
+
+        <!-- Estadísticas -->
+        <div class="row g-4 mb-5">
+            <div class="col-md-4">
+                <div class="stat-card">
+                    <i class="bi bi-people-fill fs-1 mb-3"></i>
+                    <div class="stat-number" id="totalMembers">0</div>
+                    <p>Total Asociados</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="stat-card">
+                    <i class="bi bi-person-check-fill fs-1 mb-3"></i>
+                    <div class="stat-number" id="activeMembers">0</div>
+                    <p>Activos</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="stat-card">
+                    <i class="bi bi-person-dash-fill fs-1 mb-3"></i>
+                    <div class="stat-number" id="inactiveMembers">0</div>
+                    <p>Inactivos</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="db-section">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h4 class="mb-0 text-white"><i class="bi bi-database me-2"></i>Base de Datos de Asociados</h4>
+                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#memberModal">
+                    <i class="bi bi-plus-circle me-1"></i> Nuevo Asociado
+                </button>
+            </div>
+            <div class="table-responsive bg-white rounded p-3">
+                <table class="table table-hover" id="membersTable">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>Email</th>
+                            <th>Teléfono</th>
+                            <th>Tipo</th>
+                            <th>Estado</th>
+                            <th>Fecha</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="membersTableBody"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contacto -->
+<section id="contacto" class="section contact-section">
+    <div class="container">
+        <h2 class="section-title" style="color: white;">Contacto</h2>
+        <div class="row g-4">
+            <div class="col-md-6">
+                <div class="contact-card text-white h-100">
+                    <h4 class="mb-4"><i class="bi bi-geo-alt me-2"></i>Información de Contacto</h4>
+                    <div class="mb-3">
+                        <p><i class="bi bi-person-badge me-2"></i><strong>Representante:</strong> Walter González Klegan</p>
+                        <p><i class="bi bi-telephone me-2"></i><strong>Teléfono:</strong> +593 981452439</p>
+                        <p><i class="bi bi-envelope me-2"></i><strong>Email:</strong> info@asopropesmar.org.ec</p>
+                        <p><i class="bi bi-geo-alt me-2"></i><strong>Ubicación:</strong> Manta, Manabí, Ecuador</p>
+                        <p><i class="bi bi-clock me-2"></i><strong>Horario:</strong> Lunes a Viernes 8:00 - 17:00</p>
+                    </div>
+                    <div class="mt-4">
+                        <a href="#" class="btn btn-outline-light me-2"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="btn btn-outline-light me-2"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="btn btn-outline-light"><i class="bi bi-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="contact-card h-100 text-white">
+                    <h4 class="mb-4"><i class="bi bi-map me-2"></i>Nuestra Ubicación</h4>
+                    <div class="map-container rounded overflow-hidden">
+                        <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=-80.72%2C-0.96%2C-80.68%2C-0.92&amp;layer=mapnik&amp;marker=-0.95%2C-80.70"
+                                width="100%" height="300" style="border:0;" allowfullscreen loading="lazy"></iframe>
+                    </div>
+                    <p class="mt-3 text-center"><small> Puerto de Manta, Manabí - Ecuador</small></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer text-center bg-dark text-white py-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <h5>ASOPROPESMAR</h5>
+                <p class="small">Asociación de Producción Pesquera Manabí Artesanal</p>
+            </div>
+            <div class="col-md-4 mb-4">
+                <h5>Enlaces</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#inicio" class="text-white-50 text-decoration-none">Inicio</a></li>
+                    <li><a href="#nosotros" class="text-white-50 text-decoration-none">Nosotros</a></li>
+                    <li><a href="#servicios" class="text-white-50 text-decoration-none">Servicios</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4 mb-4">
+                <h5>Datos 2026</h5>
+                <p class="small">Más de 200 pescadores asociados</p>
+                <p class="small">15+ años de experiencia</p>
+            </div>
+        </div>
+        <hr style="border-color: rgba(255,255,255,0.2);">
+        <p class="mb-0">&copy; 2026 ASOPROPESMAR. Todos los derechos reservados.</p>
+    </div>
+</footer>
+
+<!-- Modal Nuevo Asociado -->
+<div class="modal fade" id="memberModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content text-dark">
+            <div class="modal-header">
+                <h5 class="modal-title"><i class="bi bi-person-plus me-2"></i>Nuevo Asociado</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form id="memberForm">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Nombres *</label>
+                            <input type="text" class="form-control" id="memberFirstName" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Apellidos *</label>
+                            <input type="text" class="form-control" id="memberLastName" required>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Email *</label>
+                        <input type="email" class="form-control" id="memberEmail" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Teléfono *</label>
+                        <input type="tel" class="form-control" id="memberPhone" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Tipo</label>
+                        <select class="form-select" id="memberType">
+                            <option value="pescador">Pescador</option>
+                            <option value="acuicultor">Acuicultor</option>
+                            <option value="procesador">Procesador</option>
+                            <option value="comerciante">Comerciante</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Estado</label>
+                        <select class="form-select" id="memberStatus">
+                            <option value="activo">Activo</option>
+                            <option value="inactivo">Inactivo</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Guardar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Toast Container -->
+<div class="toast-container position-fixed bottom-0 end-0 p-3" id="toastContainer" style="z-index: 1055;"></div>
+
+@inject IJSRuntime JSRuntime
+
+@code {
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await JSRuntime.InvokeVoidAsync("eval", @"
+                // Add script for functionality here if not managed by _Host
+                const script = document.createElement('script');
+                script.src = 'js/script.js';
+                document.body.appendChild(script);
+            ");
+        }
+    }
+}
