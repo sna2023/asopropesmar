@@ -1,0 +1,5 @@
+bin/
+obj/
+fix_program.patch
+*.orig
+*.rej
