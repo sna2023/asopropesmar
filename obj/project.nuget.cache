@@ -1,0 +1,47 @@
+{
+  "version": 2,
+  "dgSpecHash": "k9WAomDVSS0=",
+  "success": true,
+  "projectFilePath": "/app/AsopropesmarApp.csproj",
+  "expectedPackageFiles": [
+    "/home/jules/.nuget/packages/identitymodel/6.0.0/identitymodel.6.0.0.nupkg.sha512",
+    "/home/jules/.nuget/packages/identityserver4/4.1.2/identityserver4.4.1.2.nupkg.sha512",
+    "/home/jules/.nuget/packages/identityserver4.storage/4.1.2/identityserver4.storage.4.1.2.nupkg.sha512",
+    "/home/jules/.nuget/packages/microsoft.aspnetcore.authentication.openidconnect/8.0.8/microsoft.aspnetcore.authentication.openidconnect.8.0.8.nupkg.sha512",
+    "/home/jules/.nuget/packages/microsoft.identitymodel.abstractions/7.1.2/microsoft.identitymodel.abstractions.7.1.2.nupkg.sha512",
+    "/home/jules/.nuget/packages/microsoft.identitymodel.jsonwebtokens/7.1.2/microsoft.identitymodel.jsonwebtokens.7.1.2.nupkg.sha512",
+    "/home/jules/.nuget/packages/microsoft.identitymodel.logging/7.1.2/microsoft.identitymodel.logging.7.1.2.nupkg.sha512",
+    "/home/jules/.nuget/packages/microsoft.identitymodel.protocols/7.1.2/microsoft.identitymodel.protocols.7.1.2.nupkg.sha512",
+    "/home/jules/.nuget/packages/microsoft.identitymodel.protocols.openidconnect/7.1.2/microsoft.identitymodel.protocols.openidconnect.7.1.2.nupkg.sha512",
+    "/home/jules/.nuget/packages/microsoft.identitymodel.tokens/7.1.2/microsoft.identitymodel.tokens.7.1.2.nupkg.sha512",
+    "/home/jules/.nuget/packages/newtonsoft.json/12.0.2/newtonsoft.json.12.0.2.nupkg.sha512",
+    "/home/jules/.nuget/packages/system.identitymodel.tokens.jwt/7.1.2/system.identitymodel.tokens.jwt.7.1.2.nupkg.sha512",
+    "/home/jules/.nuget/packages/microsoft.netcore.app.host.linux-x64/8.0.24/microsoft.netcore.app.host.linux-x64.8.0.24.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1902",
+      "level": "Warning",
+      "message": "Package 'IdentityServer4' 4.1.2 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-55p7-v223-x366",
+      "projectPath": "/app/AsopropesmarApp.csproj",
+      "warningLevel": 1,
+      "filePath": "/app/AsopropesmarApp.csproj",
+      "libraryId": "IdentityServer4",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    },
+    {
+      "code": "NU1902",
+      "level": "Warning",
+      "message": "Package 'IdentityServer4' 4.1.2 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-ff4q-64jc-gx98",
+      "projectPath": "/app/AsopropesmarApp.csproj",
+      "warningLevel": 1,
+      "filePath": "/app/AsopropesmarApp.csproj",
+      "libraryId": "IdentityServer4",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    }
+  ]
+}
