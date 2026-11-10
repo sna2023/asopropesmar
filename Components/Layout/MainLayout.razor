@@ -1,0 +1,49 @@
+﻿@inherits LayoutComponentBase
+@inject NavigationManager _navigation
+
+<AuthorizeView>
+    <NotAuthorized>
+        @Body
+    </NotAuthorized>
+    <Authorized>
+        <div class="page">
+            <div class="sidebar">
+                <NavMenu />
+            </div>
+
+            <main>
+                <div class="top-row px-4">
+                    <span class="me-3">Hola, @context.User.Identity?.Name!</span>
+                    <a href="/Cuenta/Autenticacion/Logout" data-enhance-nav="false">Cerrar Sesión</a>
+                </div>
+
+                <article class="content px-4">
+                    @Body
+                </article>
+            </main>
+        </div>
+
+        <div id="blazor-error-ui">
+            An unhandled error has occurred.
+            <a href="" class="reload">Reload</a>
+            <a class="dismiss">🗙</a>
+        </div>
+    </Authorized>
+</AuthorizeView>
+
+@code {
+    [CascadingParameter] private Task<AuthenticationState>? AuthStat { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        var user = (await AuthStat!)?.User;
+        if (user is null || user.Identity is null || !user.Identity.IsAuthenticated)
+        {
+            var basePath = _navigation.ToBaseRelativePath(_navigation.Uri);
+            if (!basePath.Contains("Cuenta/Autenticacion/LoggedOut") && !basePath.Contains("Cuenta/Autenticacion/Login"))
+            {
+                _navigation.NavigateTo(Helpers.Route.Cuenta.Autenticacion.LoggedOut, false, true);
+            }
+        }
+    }
+}
